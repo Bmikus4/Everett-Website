@@ -13,7 +13,7 @@ export function Hero() {
           style={{ background: 'radial-gradient(circle, color-mix(in srgb, var(--color-lavender) 55%, transparent), transparent 70%)', filter: 'blur(40px)' }}
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <OuroRing size="min(105vh, 1000px)" opacity={0.05} spin className="translate-y-[6%]" />
+          <OuroRing size="min(105vh, 1000px)" opacity={0.13} spin className="translate-y-[6%]" />
         </div>
       </div>
 
