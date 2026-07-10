@@ -1,0 +1,283 @@
+@import "tailwindcss";
+
+/* Self-hosted variable fonts (no external <link> in production) */
+@import "@fontsource-variable/newsreader";
+@import "@fontsource-variable/newsreader/wght-italic.css";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+/*
+  OURO PRAXIS — design tokens.
+  Concept: the ouroboros, the inevitable cycle of death and rebirth.
+  Warm paper + a single plum death-pole + clay/gold rebirth accent + desaturated
+  pastels used only as light washes and chips. The death->rebirth axis expressed
+  as color: cold ash pastels resolve into warm living pastels as the pulse passes.
+*/
+@theme {
+  --color-paper: #f7f4ee;
+  --color-raised: #fcfaf5;
+  --color-sunken: #f0ece3;
+  --color-ink: #171614;
+  --color-ink-soft: #5c574e;
+  --color-ink-faint: #a39d92;
+  --color-hairline: rgba(23, 22, 20, 0.1);
+
+  --color-plum: #3b2f4a;
+  --color-plum-deep: #2e2440;
+  --color-clay: #b5654a;
+  --color-gold: #e6c98b;
+
+  --color-lavender: #dad3f0;
+  --color-mint: #cde4d6;
+  --color-blush: #f1d6d3;
+  --color-peach: #f6ddc7;
+  --color-sky: #ccdeec;
+  --color-cream: #fbf3e4;
+
+  /* pastel text-tints (readable ink-tints of each wash) */
+  --color-lavender-ink: #7a6da8;
+  --color-mint-ink: #5e8c72;
+  --color-blush-ink: #b07a74;
+  --color-sky-ink: #5e7e98;
+
+  --font-display: "Newsreader Variable", Georgia, serif;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+  --ease-out-quint: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-rebirth: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --shadow-soft: 0 24px 60px -24px rgba(59, 47, 74, 0.18),
+    0 2px 6px rgba(59, 47, 74, 0.06);
+}
+
+:root {
+  color-scheme: light;
+}
+
+/* Dark: a deep warm night the pastels glow against (prefers-color-scheme users). */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-paper: #14130f;
+    --color-raised: #1c1a17;
+    --color-sunken: #100f0c;
+    --color-ink: #ede8df;
+    --color-ink-soft: #b9b2a6;
+    --color-ink-faint: #7a7468;
+    --color-hairline: rgba(237, 232, 223, 0.1);
+    --color-plum: #2e2440;
+    --color-clay: #c57a5e;
+    --color-lavender: #b7add6;
+    --color-mint: #a7c4a0;
+    --color-blush: #d7b4b0;
+    --shadow-soft: 0 24px 60px -24px rgba(0, 0, 0, 0.5),
+      0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink-soft);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.0;
+    margin: 0;
+    text-wrap: balance;
+    font-optical-sizing: auto;
+  }
+  p { margin: 0; text-wrap: pretty; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; }
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-clay);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Editorial mono eyebrow */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-ink-soft);
+    font-weight: 500;
+  }
+  .tnum { font-variant-numeric: tabular-nums; }
+
+  /* The intentional dark climax section (plum) regardless of page theme */
+  .section-dark {
+    --color-paper: #2e2440;
+    --color-raised: #3b2f4a;
+    --color-ink: #f4eefb;
+    --color-ink-soft: #cdc3db;
+    --color-ink-faint: #9a8fae;
+    --color-hairline: rgba(244, 238, 251, 0.12);
+    background: var(--color-paper);
+    color: var(--color-ink-soft);
+  }
+
+  /* Fine film grain — the cheapness-killer. Fixed, pointer-events:none, above all. */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Native scroll-driven reveal. Finished state IS the default (no motion => in place). */
+  .reveal { opacity: 1; }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal {
+        animation: reveal-fade-up linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 32%;
+      }
+    }
+  }
+  @keyframes reveal-fade-up {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .measure { max-width: 66ch; }
+
+  /* Ouroboros self-draw (line mark) and the eternal gold glint circling forever */
+  .ouro-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .ouro-draw-fill { transform-origin: center; }
+  @media (prefers-reduced-motion: no-preference) {
+    .ouro-draw {
+      animation: ouro-draw 2.4s var(--ease-rebirth) forwards;
+    }
+    .ouro-draw-fill {
+      animation: ouro-fill 1.8s var(--ease-rebirth) forwards;
+    }
+    .ouro-glint {
+      stroke-dasharray: 0.09 0.91;
+      animation: ouro-glint 6s linear infinite;
+    }
+  }
+  @keyframes ouro-draw {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes ouro-fill {
+    from { opacity: 0; transform: scale(0.94) rotate(-8deg); }
+    to { opacity: 1; transform: scale(1) rotate(0); }
+  }
+  @keyframes ouro-glint {
+    from { stroke-dashoffset: 1; }
+    to { stroke-dashoffset: -0.09; }
+  }
+
+  /* Global scroll-spine: a faint ouroboros ring that draws itself as you scroll,
+     closing (head meets tail) at the bottom of the page. Pure CSS scroll timeline. */
+  .spine-path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0; /* fallback + reduced motion: shown already closed */
+  }
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .spine-path {
+        animation: spine-draw linear both;
+        animation-timeline: scroll(root block);
+      }
+      .spine-glint {
+        animation: spine-glint linear both;
+        animation-timeline: scroll(root block);
+      }
+    }
+  }
+  @keyframes spine-draw {
+    from { stroke-dashoffset: 1; }
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes spine-glint {
+    from { offset-distance: 0%; opacity: 0.9; }
+    to { offset-distance: 100%; opacity: 0.9; }
+  }
+
+  .watermark-spin {
+    animation: watermark-spin 200s linear infinite;
+  }
+  @keyframes watermark-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Calculator range slider (the instrument feel) */
+  .ouro-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--color-clay) 0%,
+      var(--color-clay) var(--pct),
+      var(--color-hairline) var(--pct),
+      var(--color-hairline) 100%
+    );
+    cursor: pointer;
+    outline: none;
+  }
+  .ouro-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-raised);
+    border: 2px solid var(--color-clay);
+    box-shadow: 0 2px 8px rgba(59, 47, 74, 0.2);
+    transition: transform 0.15s ease;
+  }
+  .ouro-range::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  .ouro-range::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-raised);
+    border: 2px solid var(--color-clay);
+  }
+}
