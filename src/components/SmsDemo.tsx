@@ -72,8 +72,8 @@ export function SmsDemo() {
             </div>
           </div>
 
-          {/* messages */}
-          <div className="flex min-h-[318px] flex-col gap-1.5 px-3.5 py-4" style={{ background: '#fff' }}>
+          {/* messages: height reserved for the full thread so the phone never grows */}
+          <div className="flex min-h-[452px] flex-col gap-1.5 px-3.5 py-4" style={{ background: '#fff' }}>
             <div className="mb-1 text-center text-[0.66rem] font-medium" style={{ color: '#8e8e93' }}>
               Text Message · SMS
             </div>

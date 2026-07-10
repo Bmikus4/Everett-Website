@@ -6,12 +6,15 @@ import { hero } from '../lib/content'
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-paper">
-      {/* soft pastel glow + subtle ouroboros ring behind the product visual */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* subtle ouroboros watermark + soft pastel glow behind the whole hero */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
-          className="absolute right-[-10%] top-[10%] hidden h-[70vh] w-[70vh] rounded-full lg:block"
-          style={{ background: 'radial-gradient(circle, color-mix(in srgb, var(--color-lavender) 60%, transparent), transparent 70%)', filter: 'blur(40px)' }}
+          className="absolute right-[-8%] top-[6%] hidden h-[64vh] w-[64vh] rounded-full lg:block"
+          style={{ background: 'radial-gradient(circle, color-mix(in srgb, var(--color-lavender) 55%, transparent), transparent 70%)', filter: 'blur(40px)' }}
         />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <OuroRing size="min(105vh, 1000px)" opacity={0.05} spin className="translate-y-[6%]" />
+        </div>
       </div>
 
       <div className="mx-auto grid max-w-[1240px] items-center gap-14 px-6 pb-24 pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:pt-40">
@@ -42,12 +45,7 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute inset-0 -z-0 flex items-center justify-center">
-            <OuroRing size="min(120%, 620px)" opacity={0.07} spin />
-          </div>
-          <div className="relative z-10">
-            <SmsDemo />
-          </div>
+          <SmsDemo />
         </div>
       </div>
     </section>

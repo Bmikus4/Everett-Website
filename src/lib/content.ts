@@ -1,6 +1,6 @@
 // All site copy. Marketing-first, professional agency structure (SamurAI-modelled).
 // Voice: calm premium authority. Death is the doorway, never the dwelling. No em-dashes.
-// Proof spine (only sanctioned figures): 41% reply vs 8% industry, £500K+ recovered,
+// Proof spine (only sanctioned figures): 15% reply vs 8% industry, £500K+ recovered,
 // 200K+ leads reactivated, 536% increase in conversions.
 
 export const nav = {
@@ -123,7 +123,7 @@ export const results = {
     { value: 500, prefix: '£', suffix: 'K+', label: 'recovered for clients' },
     { value: 200, suffix: 'K+', label: 'dormant leads reactivated' },
   ],
-  reply: { us: 41, industry: 8 },
+  reply: { us: 15, industry: 8 },
   replyLabel: 'average reply rate, against an 8% industry average',
 }
 
@@ -166,7 +166,7 @@ export const why = {
   eyebrow: 'Why Ouro Praxis',
   headline: 'Specialists in reactivation. Not another generalist agency.',
   stats: [
-    { value: '41%', label: 'average reply rate' },
+    { value: '15%', label: 'average reply rate' },
     { value: '£500K+', label: 'recovered for clients' },
     { value: '200K+', label: 'leads reawakened' },
   ],
@@ -201,7 +201,7 @@ export const calculator = {
   inputs: {
     leads: { label: 'Dormant leads in your CRM', min: 500, max: 50000, step: 250, default: 5000 },
     aov: { label: 'Average customer value', min: 100, max: 10000, step: 50, default: 800, prefix: '£' },
-    replyRate: { label: 'Reply rate', min: 5, max: 50, step: 1, default: 41, suffix: '%', note: 'Industry average is 8%. Ouro Praxis averages 41%.' },
+    replyRate: { label: 'Reply rate', min: 5, max: 50, step: 1, default: 15, suffix: '%', note: 'Industry average is around 8%. Ouro Praxis averages about 15%.' },
     closeRate: { label: 'Close rate on conversations', min: 5, max: 40, step: 1, default: 25, suffix: '%' },
   },
   anchor: 'Reactivating an old lead costs far less than buying a new one. Most of this revenue is simply waiting.',
