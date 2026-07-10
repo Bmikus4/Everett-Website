@@ -18,7 +18,7 @@ export const hero = {
   eyebrow: 'AI database reactivation',
   headline: 'Turn your dead leads into booked calls.',
   subhead:
-    'We use AI-led SMS to revive the dormant leads already sitting in your CRM. No new ad spend, no new hires.',
+    'AI SMS that turns the dormant leads already in your CRM into booked calls. No new spend, no new hires.',
   ctaPrimary: 'Book a free call',
   ctaSecondary: 'See how it works',
   trustLine: 'Trusted by home services, dental, fitness and home-improvement businesses.',
