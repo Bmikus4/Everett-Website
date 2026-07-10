@@ -1,6 +1,5 @@
 import { MagneticButton } from './MagneticButton'
 import { SmsDemo } from './SmsDemo'
-import { OuroRing } from './OuroRing'
 import { hero } from '../lib/content'
 
 export function Hero() {
@@ -13,7 +12,13 @@ export function Hero() {
           style={{ background: 'radial-gradient(circle, color-mix(in srgb, var(--color-lavender) 55%, transparent), transparent 70%)', filter: 'blur(40px)' }}
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <OuroRing size="min(105vh, 1000px)" opacity={0.13} spin className="translate-y-[6%]" />
+          <img
+            src={`${import.meta.env.BASE_URL}ouroboros.png`}
+            alt=""
+            aria-hidden
+            className="w-[min(88vh,880px)] max-w-none translate-y-[3%]"
+            style={{ opacity: 0.2 }}
+          />
         </div>
       </div>
 
