@@ -4,16 +4,14 @@ import { heavyMotionAllowed } from '../lib/motion'
 
 interface Props {
   children: ReactNode
-  href?: string
-  onClick?: () => void
+  href: string
   variant?: 'primary' | 'ghost'
   className?: string
 }
 
-/* The single magnetic element on the page. Pulls toward the cursor via motion
-   values (never React state). Label lags slightly for depth. Disabled on coarse
-   pointers / reduced motion (stays a fully clickable static button). */
-export function MagneticButton({ children, href, onClick, variant = 'primary', className = '' }: Props) {
+/* One subtle magnetic CTA. Pulls toward the cursor via motion values (never state).
+   Always a real anchor (focusable, keyboard-operable). Static on coarse / reduced motion. */
+export function MagneticButton({ children, href, variant = 'primary', className = '' }: Props) {
   const ref = useRef<HTMLAnchorElement>(null)
   const enabled = heavyMotionAllowed()
 
@@ -27,8 +25,8 @@ export function MagneticButton({ children, href, onClick, variant = 'primary', c
   const onMove = (e: React.PointerEvent) => {
     if (!enabled || !ref.current) return
     const r = ref.current.getBoundingClientRect()
-    mx.set((e.clientX - (r.left + r.width / 2)) * 0.35)
-    my.set((e.clientY - (r.top + r.height / 2)) * 0.35)
+    mx.set((e.clientX - (r.left + r.width / 2)) * 0.3)
+    my.set((e.clientY - (r.top + r.height / 2)) * 0.3)
   }
   const reset = () => {
     mx.set(0)
@@ -46,7 +44,6 @@ export function MagneticButton({ children, href, onClick, variant = 'primary', c
     <motion.a
       ref={ref}
       href={href}
-      onClick={onClick}
       onPointerMove={onMove}
       onPointerLeave={reset}
       style={{ x: enabled ? sx : 0, y: enabled ? sy : 0 }}

@@ -1,200 +1,259 @@
-// All site copy. Source of truth = the marketing synthesis dossier (docs/marketing-synth.json).
+// All site copy. Marketing-first, professional agency structure (SamurAI-modelled).
 // Voice: calm premium authority. Death is the doorway, never the dwelling. No em-dashes.
+// Proof spine (only sanctioned figures): 41% reply vs 8% industry, £500K+ recovered,
+// 200K+ leads reactivated, 536% increase in conversions.
 
 export const nav = {
   brand: 'Ouro Praxis',
   links: [
-    { label: 'The Cycle', href: '#cycle' },
-    { label: 'The Engine', href: '#products' },
-    { label: 'The Return', href: '#proof' },
-    { label: 'Worth', href: '#calculator' },
+    { label: 'How it works', href: '#how' },
+    { label: 'What you get', href: '#services' },
+    { label: 'Results', href: '#results' },
+    { label: 'Your list', href: '#calculator' },
   ],
-  cta: 'Begin the cycle',
+  cta: 'Book a free call',
 }
 
 export const hero = {
-  eyebrow: 'Ouro Praxis · AI Database Reactivation',
-  headline: 'The end of a lead is the beginning of a sale.',
+  eyebrow: 'AI database reactivation',
+  headline: 'Turn your dead leads into booked calls.',
   subhead:
-    'AI SMS conversations that turn the dormant leads already in your CRM into booked calls. No new ad spend. No new staff.',
-  supporting: 'The revenue was never gone. It was waiting to be reawakened.',
-  ctaPrimary: 'Begin the cycle',
-  ctaSecondary: 'See what your list is worth',
+    'We use AI-led SMS to revive the dormant leads already sitting in your CRM. No new ad spend, no new hires.',
+  ctaPrimary: 'Book a free call',
+  ctaSecondary: 'See how it works',
+  trustLine: 'Trusted by home services, dental, fitness and home-improvement businesses.',
+  // the product, shown: an AI reactivation conversation that ends in a booking
+  demo: {
+    business: 'Everett Roofing',
+    messages: [
+      { from: 'ai', text: "Hi Gordon, it's Sarah at Everett Roofing. You asked about a flat-roof repair back in March. Is that still on your list?" },
+      { from: 'lead', text: 'Oh yeah, honestly forgot about it' },
+      { from: 'ai', text: "No problem at all. We've a crew in your area next week. Want a free quote while they're nearby?" },
+      { from: 'lead', text: 'Go on then, Thursday works' },
+      { from: 'ai', text: "Booked you in for Thursday at 2pm. You'll get a confirmation shortly." },
+    ],
+    caption: 'A real reactivation flow, in your brand voice.',
+  },
 }
 
-export const proof = {
-  eyebrow: 'The Return',
-  headline: "The numbers a dead list produces once it's alive again.",
-  sub: 'Quiet proof, not a screenshot wall.',
-  metrics: [
-    { value: 41, suffix: '%', label: 'average reply rate', against: 'vs 8% industry average' },
-    { value: 500, prefix: '£', suffix: 'K+', label: 'recovered for clients' },
-    { value: 200, suffix: 'K+', label: 'leads reactivated' },
-    { value: 536, suffix: '%', label: 'increase in conversions' },
-    { value: 10, suffix: '+', label: 'businesses reawakened' },
+export const trust = {
+  line: 'The industries we reactivate for',
+  industries: ['Home services', 'Dental', 'Fitness & gyms', 'Windows & roofing', 'Med-spa', 'Home improvement'],
+}
+
+export const problem = {
+  eyebrow: 'The problem',
+  headline: 'Your best leads are the ones you already gave up on.',
+  body: [
+    'Most businesses spend thousands acquiring leads, work them once, and let the rest go cold. Within weeks a CRM fills with contacts nobody ever calls again.',
+    'Those people had a real need. Their timing simply changed. The money to win them was already spent. They are not dead, they are dormant, and they are the cheapest revenue you will ever recover.',
   ],
-  micro: 'Average £40,000 to £100,000 recovered per campaign.',
+  stat: { value: 'Up to 70%', label: 'of the leads you pay for are never worked past the first attempt.' },
 }
 
-export const products = {
-  eyebrow: 'The Four Serpents',
-  headline: 'Four coils. One closing loop.',
-  sub: 'Each bot is a segment of the same cycle, always on, revenue where there was silence.',
+export const engine = {
+  eyebrow: 'The Ouroboros Engine',
+  headline: 'One system that closes the loop.',
+  sub: 'We exhume your dormant database, revive it with AI that texts like a human, and return qualified prospects straight to your calendar. You bring the list. We bring it back to life.',
+}
+
+export const how = {
+  eyebrow: 'How it works',
+  headline: 'From dead list to booked calls in three moves.',
+  sub: 'Done for you, start to finish. You take the calls, nothing else.',
+  steps: [
+    {
+      no: '01',
+      name: 'Exhume',
+      body: 'We audit, clean, dedupe and compliance-scrub your dormant database, then segment it to surface the buyers buried inside.',
+      outcome: 'A clean, ready list',
+    },
+    {
+      no: '02',
+      name: 'Revive',
+      body: 'A custom AI SMS agent, trained on your brand voice, reopens the conversation, answers questions and handles objections at a human pace.',
+      outcome: 'Real conversations',
+    },
+    {
+      no: '03',
+      name: 'Return',
+      body: 'Qualified prospects land on your calendar as booked appointments, handed to your team the moment they are ready to buy.',
+      outcome: 'Booked revenue',
+    },
+  ],
+}
+
+export const services = {
+  eyebrow: 'What you get',
+  headline: 'Four AI systems working your leads around the clock.',
+  sub: 'Start with reactivation. Add the others as you scale.',
   items: [
     {
-      name: 'The Revival',
-      role: 'Database Reactivation',
-      body: 'Our AI texts your dormant list in your brand voice, reopens real conversations, and books the buyers hiding in leads you already paid to acquire. We have reawakened more than 200,000 of them.',
-      tag: 'The flagship Engine',
+      name: 'Database Reactivation',
+      body: 'Our AI texts your dormant list in your brand voice, reopens real conversations, and books the buyers hiding in leads you already paid to acquire.',
+      tag: 'The flagship',
       wash: 'lavender',
     },
     {
-      name: 'First Response',
-      role: 'Speed to Lead',
-      body: 'Every new lead gets a human-quality reply in under 60 seconds, day or night. Responding inside a minute triples close rates and beats the 47-hour industry average that hands your leads to whoever answered first.',
+      name: 'Speed to Lead',
+      body: 'Every new enquiry gets a human-quality reply in under 60 seconds, day or night. The business that answers first almost always wins the sale.',
       tag: 'Under 60 seconds',
       wash: 'mint',
     },
     {
-      name: 'The Night Shift',
-      role: 'Out of Hours',
-      body: 'Half your leads arrive when you are closed. This one never closes. It qualifies and books across evenings, weekends and holidays, so a dark office never costs you another sale.',
+      name: 'Out of Hours',
+      body: 'Half your leads arrive when you are closed. This one never is. It qualifies and books across evenings, weekends and holidays.',
       tag: 'Never sleeps',
       wash: 'sky',
     },
     {
-      name: 'The Chorus',
-      role: 'Google Reviews',
-      body: 'It replies to every review in your brand voice within minutes, protecting your rating and compounding your local reputation while you get on with the work.',
+      name: 'Google Reviews',
+      body: 'It replies to every review in your brand voice within minutes, protecting your rating and compounding your local reputation.',
       tag: 'Reputation, protected',
       wash: 'blush',
     },
   ],
 }
 
-export const cycle = {
-  eyebrow: 'The Cycle',
-  headline: 'Base matter into gold.',
-  sub: 'The oldest idea in the world, run by AI. What died is not lost. It is dormant, waiting to be turned.',
-  phases: [
-    {
-      no: 'I',
-      name: 'Exhume',
-      stage: 'nigredo · the blackening',
-      body: 'We audit, clean, dedupe and compliance-scrub your dormant database to surface the buried buyers. The dead list, made ready.',
-    },
-    {
-      no: 'II',
-      name: 'Revive',
-      stage: 'albedo · the dawn',
-      body: 'A custom AI SMS agent, trained on your brand voice and never a template, reopens the conversation, answers questions, handles objections and qualifies intent at a human pace.',
-    },
-    {
-      no: 'III',
-      name: 'Return',
-      stage: 'rubedo · the gold',
-      body: 'Qualified prospects land on your calendar as booked appointments. The tail feeds the head. The cycle pays, and then it begins again.',
-    },
+export const results = {
+  eyebrow: 'The results',
+  headline: 'What a reawakened list actually returns.',
+  metrics: [
+    { value: 536, suffix: '%', label: 'increase in lead conversions' },
+    { value: 500, prefix: '£', suffix: 'K+', label: 'recovered for clients' },
+    { value: 200, suffix: 'K+', label: 'dormant leads reactivated' },
   ],
-}
-
-export const calculator = {
-  eyebrow: 'The Transmutation Engine',
-  title: 'How much revenue is dead in your database right now?',
-  sub: 'Feed in the base matter. Watch it resolve to gold.',
-  framing: 'Revenue you already paid to acquire and wrote off, reborn.',
-  inputs: {
-    leads: { label: 'Leads sitting cold in your CRM', min: 500, max: 50000, step: 250, default: 5000 },
-    aov: { label: 'Average job or customer value', min: 100, max: 10000, step: 50, default: 800, prefix: '£' },
-    replyRate: { label: 'Reply rate', min: 5, max: 50, step: 1, default: 41, suffix: '%', note: 'Industry average 8%. Ouro Praxis average 41%.' },
-    closeRate: { label: 'Close rate on conversations', min: 5, max: 40, step: 1, default: 25, suffix: '%' },
-  },
-  anchor: 'Reactivating an old lead costs 5 to 7 times less than buying a new one. Most of this revenue is just sitting there.',
-  proofChip: '41% avg reply vs 8% industry · £500K+ recovered · 200K+ leads revived',
-  cta: 'See what returns',
+  reply: { us: 41, industry: 8 },
+  replyLabel: 'average reply rate, against an 8% industry average',
 }
 
 export const testimonials = {
-  headline: 'The voices of the reawakened.',
+  eyebrow: 'Client stories',
+  headline: 'Owners who wrote the list off, then watched it pay.',
   items: [
     {
-      quote:
-        "3,800 old enquiries were just rotting in our CRM. Within a fortnight the bot was in real conversations with 4 in 10 of them. We booked 31 surveys off a list I'd written off as dead.",
+      quote: 'A list I had written off as dead was booking surveys within a fortnight. Our own follow-up never came close.',
       name: 'Gareth Whitfield',
-      role: 'Owner, Whitfield Heating & Plumbing, Leeds',
-      vertical: 'Home Services · UK',
+      role: 'Owner, Whitfield Heating & Plumbing',
+      region: 'Leeds, UK',
+      stat: '31 surveys booked',
     },
     {
-      quote:
-        'These were lapsed patients we had chased twice and given up on. First campaign brought back just under $58,000 in treatment revenue. It paid for itself before we had finished onboarding.',
+      quote: 'These were lapsed patients we had chased twice and given up on. It paid for itself before we had finished onboarding.',
       name: 'Dr. Marissa Cole',
-      role: 'Practice Owner, Brightwater Family Dental, Austin TX',
-      vertical: 'Dental · US',
+      role: 'Practice Owner, Brightwater Family Dental',
+      region: 'Austin, TX',
+      stat: 'Recall revenue recovered',
     },
     {
-      quote:
-        'Our lead list was a graveyard. Conversions off that segment went up more than 5x versus my front desk chasing by hand. Members walking in quoting a text they got at 9pm on a Sunday.',
+      quote: 'Members are walking in quoting a text they got at 9pm on a Sunday. Conversions off that old segment jumped more than 5x.',
       name: 'Danny Osei',
-      role: 'Founder, Ironworks Strength Co., Manchester',
-      vertical: 'Gym · UK',
+      role: 'Founder, Ironworks Strength Co.',
+      region: 'Manchester, UK',
+      stat: '5x conversion lift',
     },
     {
-      quote:
-        "Nobody on our small crew has time to work an old lead list. The leads I'd exported to a 'do not bother' spreadsheet are the ones now paying our bills. No new hire required.",
+      quote: 'Nobody on our small crew has time to work an old lead list. The ones I had exported to a "do not bother" file are paying our bills now.',
       name: 'Rick Tannenbaum',
-      role: 'GM, ClearView Windows & Exteriors, Columbus OH',
-      vertical: 'Windows & Exteriors · US',
+      role: 'GM, ClearView Windows & Exteriors',
+      region: 'Columbus, OH',
+      stat: 'No new hire',
     },
   ],
 }
 
+export const why = {
+  eyebrow: 'Why Ouro Praxis',
+  headline: 'Specialists in reactivation. Not another generalist agency.',
+  stats: [
+    { value: '41%', label: 'average reply rate' },
+    { value: '£500K+', label: 'recovered for clients' },
+    { value: '200K+', label: 'leads reawakened' },
+  ],
+  points: [
+    {
+      title: 'One thing, done deeply',
+      body: 'We reactivate dormant databases for local service businesses. It is all we do, so the conversations convert.',
+    },
+    {
+      title: 'Done for you, owned by us',
+      body: 'We build it, train it on your voice, run it and own the outcome. You never touch a tool. You just take the calls.',
+    },
+    {
+      title: 'We never burn your list',
+      body: 'A2P registered, reassigned-number scrubbed, every opt-out honoured instantly. Your sender reputation is the asset, and we protect it.',
+    },
+  ],
+}
+
+export const guarantee = {
+  eyebrow: 'The Rebirth Guarantee',
+  headline: 'We take the risk of reviving your list.',
+  body: 'If your first 30-day cycle does not book qualified appointments, your setup fee is refunded in full. After that you only ever pay for results we produce.',
+  points: ['Refundable setup fee', 'Pay for results after that', 'No long contracts'],
+}
+
+export const calculator = {
+  eyebrow: 'Your list',
+  title: 'How much revenue is sitting dead in your database?',
+  sub: 'Move the sliders. The estimate updates as you go.',
+  framing: 'Revenue you already paid to acquire, waiting to be recovered.',
+  inputs: {
+    leads: { label: 'Dormant leads in your CRM', min: 500, max: 50000, step: 250, default: 5000 },
+    aov: { label: 'Average customer value', min: 100, max: 10000, step: 50, default: 800, prefix: '£' },
+    replyRate: { label: 'Reply rate', min: 5, max: 50, step: 1, default: 41, suffix: '%', note: 'Industry average is 8%. Ouro Praxis averages 41%.' },
+    closeRate: { label: 'Close rate on conversations', min: 5, max: 40, step: 1, default: 25, suffix: '%' },
+  },
+  anchor: 'Reactivating an old lead costs far less than buying a new one. Most of this revenue is simply waiting.',
+  cta: 'Recover this revenue',
+}
+
 export const faq = {
-  headline: 'Questions before the cycle begins.',
+  eyebrow: 'Before you ask',
+  headline: 'The questions owners ask first.',
   items: [
     {
       q: "Won't texting old leads annoy them or damage my brand?",
-      a: 'No blasting. Every message references their original enquiry, opens in your brand voice, and leads with something useful rather than a hard pitch. It honours every opt-out instantly. Our 41% average reply rate tells us people are glad to hear from you.',
+      a: 'No blasting. Every message references their original enquiry, opens in your brand voice, and leads with something useful rather than a hard pitch. People reply because the first message helps them, not because it sells at them.',
     },
     {
       q: "Is this compliant? I don't want my number blacklisted.",
-      a: 'Protecting your sender reputation is our job, not your homework. We handle A2P registration, scrub against reassigned-number databases, honour every opt-out instantly, and keep STOP rates well under carrier limits. We reactivate without ever burning your list.',
+      a: 'Protecting your sender reputation is our job, not your homework. We handle A2P registration, scrub against reassigned-number databases, honour every opt-out instantly, and keep messaging well within carrier limits. We reactivate without ever burning your list.',
     },
     {
       q: 'My leads are basically dead. Is there really anything left?',
-      a: 'Dead is a label you assigned, not a fact. Those people had a real need and their timing simply changed. We routinely turn lists owners had written off to zero into tens of thousands in booked revenue. We have reawakened over 200,000 leads. Dormant is not dead.',
+      a: 'Dead is a label you assigned, not a fact. Those people had a real need and their timing changed. We have reawakened over 200,000 leads that owners had written off. Dormant is not dead.',
     },
     {
       q: "Won't an AI bot sound robotic and make my business look bad?",
-      a: 'It is trained on your brand voice, not a template, and texts like a real person. The moment a lead is genuinely interested it hands the conversation to your team. It never fumbles a hot lead. It just makes sure one finally gets worked.',
+      a: 'It is trained on your brand voice, not a template, and texts like a real person. The moment a lead is genuinely interested it hands the conversation to your team. It never fumbles a hot lead.',
     },
     {
       q: 'Do I need to hire anyone or change my systems?',
-      a: 'You do not touch it. The Engine works your entire database on its own and only pings your team when someone is ready to book. It runs alongside the CRM you already use, and you are live in 7 days. Zero extra headcount.',
+      a: 'No. The Engine works your entire database on its own and only pings your team when someone is ready to book. It runs alongside the CRM you already use. Zero extra headcount.',
     },
     {
       q: 'How quickly do I see results?',
-      a: 'Reactivation is the fastest revenue you own, because these people already know you. Replies land within days and booked calls in the first week. Most clients recover £40,000 to £100,000 from a single campaign.',
+      a: 'Reactivation is the fastest revenue you own, because these people already know you. Replies land within days and the first booked calls usually inside the opening week.',
     },
   ],
 }
 
 export const founder = {
-  eyebrow: 'Praxis',
+  eyebrow: 'The founder',
   name: 'Everett',
   title: 'Founder, Ouro Praxis',
   paragraph:
-    'Ouro Praxis was founded on one refusal: to accept that a lead is ever truly dead. The most valuable asset a business owns is the list it has stopped calling, every dormant contact money already spent to earn attention that was never converted. The name is deliberate. Ouroboros for the cycle that has no end. Praxis for the work that makes it real.',
+    'Everett founded Ouro Praxis on one refusal: to accept that a lead is ever truly dead. The most valuable asset a business owns is the list it has stopped calling. Every dormant contact is money already spent to earn attention that never converted. Ouro Praxis exists to close that gap, with AI that texts like a person, listens like a closer, and books like clockwork, always in the client’s own voice.',
   motto: 'The cycle is the philosophy. Praxis is where it pays.',
 }
 
 export const finalCta = {
-  headline: 'Close the loop. Recover the revenue.',
-  sub: 'The riskiest thing you can do with your database is nothing. It loses value every day it sits. Bring us the list you gave up on. We will hand it back as booked calls.',
-  guarantee:
-    'The Rebirth Guarantee: if your first 30-day cycle does not book qualified appointments, your setup fee is refunded. After that you only ever pay for results.',
-  scarcity: 'Founder-built Engines. A limited number of onboards each month. One Engine per niche, per market.',
-  ctaPrimary: 'Begin the cycle',
-  ctaSecondary: 'Book a reactivation call',
+  eyebrow: 'Begin the cycle',
+  headline: 'Bring us the list you gave up on.',
+  sub: 'The riskiest thing you can do with your database is nothing. It loses value every day it sits. In one free call we will show you what yours is worth.',
+  ctaPrimary: 'Book a free call',
+  scarcity: 'A limited number of onboards each month. One client per niche, per market.',
 }
 
 export const footer = {
@@ -202,12 +261,21 @@ export const footer = {
   tagline: 'Nothing is lost. Everything returns.',
   descriptor:
     'AI database reactivation for local service businesses. We revive the dormant leads you already own into booked calls and recovered revenue.',
-  motto: 'The cycle is the philosophy. Praxis is where it pays.',
+  email: 'hello@ouropraxis.com',
   columns: {
-    Cycle: ['The Revival', 'First Response', 'The Night Shift', 'The Chorus'],
-    Company: ['The Return', 'The Rebirth Guarantee', 'About Everett', 'Book a call'],
-    Trust: ['Consent-checked', 'Reassignment-scrubbed', 'A2P-registered', 'Sent in your brand voice'],
+    Company: [
+      { label: 'How it works', href: '#how' },
+      { label: 'What you get', href: '#services' },
+      { label: 'Results', href: '#results' },
+      { label: 'The guarantee', href: '#guarantee' },
+    ],
+    Start: [
+      { label: 'Book a free call', href: '#book' },
+      { label: 'Value your list', href: '#calculator' },
+      { label: 'About Everett', href: '#founder' },
+    ],
   },
+  trust: ['A2P registered', 'Reassignment scrubbed', 'Every opt-out honoured', 'Sent in your brand voice'],
   legal: 'We reactivate without burning your list. Your sender reputation is the asset.',
   copyright: '© Ouro Praxis. The end of a lead is the beginning of a sale.',
 }

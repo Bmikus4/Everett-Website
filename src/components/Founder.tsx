@@ -3,20 +3,19 @@ import { founder } from '../lib/content'
 
 export function Founder() {
   return (
-    <section id="founder" className="relative border-t border-hairline">
-      <div className="mx-auto flex max-w-[760px] flex-col items-center px-6 py-[clamp(5rem,11vw,9rem)] text-center">
-        <Ouroboros variant="line" size={52} draw className="reveal" title="Ouro Praxis" />
-        <p className="eyebrow reveal mt-8">{founder.eyebrow}</p>
-        <p
-          className="reveal measure mt-6 font-display text-[1.4rem] font-light leading-relaxed text-ink"
-          style={{ maxWidth: '40ch' }}
-        >
-          {founder.paragraph}
-        </p>
-        <p className="reveal mt-10 font-display text-[1.15rem] italic text-ink-soft">{founder.motto}</p>
-        <p className="reveal mt-6 font-mono text-[0.75rem] uppercase tracking-[0.16em] text-ink-faint">
-          {founder.name} / {founder.title}
-        </p>
+    <section id="founder" className="relative border-t border-hairline bg-sunken">
+      <div className="mx-auto grid max-w-[1040px] grid-cols-1 items-center gap-12 px-6 py-[clamp(5rem,11vw,9rem)] md:grid-cols-[auto_1fr] md:gap-16">
+        <div className="flex flex-col items-center gap-5">
+          <div className="grid h-28 w-28 place-items-center rounded-full border border-hairline bg-raised">
+            <span className="font-display text-[2.5rem] font-light text-plum">E</span>
+          </div>
+          <Ouroboros variant="filled" size={40} draw title="Ouro Praxis" />
+        </div>
+        <div>
+          <p className="reveal font-display text-[1.35rem] font-light leading-relaxed text-ink">{founder.paragraph}</p>
+          <p className="reveal mt-8 font-display text-[1.1rem] italic text-ink-soft">{founder.motto}</p>
+          <p className="reveal mt-5 font-mono text-[0.75rem] uppercase tracking-[0.16em] text-ink-soft">{founder.name} · {founder.title}</p>
+        </div>
       </div>
     </section>
   )

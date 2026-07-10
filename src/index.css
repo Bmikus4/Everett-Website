@@ -18,9 +18,11 @@
   --color-raised: #fcfaf5;
   --color-sunken: #f0ece3;
   --color-ink: #171614;
-  --color-ink-soft: #5c574e;
-  --color-ink-faint: #a39d92;
-  --color-hairline: rgba(23, 22, 20, 0.1);
+  --color-ink-soft: #514c44;
+  --color-ink-faint: #837c6f; /* darkened to clear ~3:1; decorative + large only */
+  --color-hairline: rgba(23, 22, 20, 0.12);
+
+  --radius-card: 22px;
 
   --color-plum: #3b2f4a;
   --color-plum-deep: #2e2440;
@@ -180,6 +182,22 @@
   }
 
   .measure { max-width: 66ch; }
+
+  /* SMS demo: bubble entrance + typing dots */
+  .bubble-in { animation: bubble-in 0.34s var(--ease-out-quint) both; }
+  @keyframes bubble-in {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .dot { animation: dot-pulse 1s ease-in-out infinite; }
+  @keyframes dot-pulse {
+    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(-2px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bubble-in { animation: none; }
+    .dot { animation: none; }
+  }
 
   /* Ouroboros self-draw (line mark) and the eternal gold glint circling forever */
   .ouro-draw {

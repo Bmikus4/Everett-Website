@@ -28,7 +28,11 @@ export function useMotionPref() {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
     const update = () => setOn(motionAllowed())
     mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
+    window.addEventListener('ouro-motion-change', update)
+    return () => {
+      mq.removeEventListener('change', update)
+      window.removeEventListener('ouro-motion-change', update)
+    }
   }, [])
   const toggle = useCallback(() => {
     const next = !motionAllowed()
