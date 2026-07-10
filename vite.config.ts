@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // GitHub Pages project site is served from /Everett-Website/.
-  base: '/Everett-Website/',
+  // Relative base works on both Vercel (served at root) and GitHub Pages (subpath).
+  base: './',
   plugins: [react(), tailwindcss()],
 })

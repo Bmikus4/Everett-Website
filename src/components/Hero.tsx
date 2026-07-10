@@ -4,7 +4,7 @@ import { hero } from '../lib/content'
 
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden">
+    <section id="top" className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-paper">
       <HeroCanvas />
 
       {/* legibility scrim: paper glow behind the headline, fades into the field */}

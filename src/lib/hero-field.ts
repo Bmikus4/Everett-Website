@@ -54,7 +54,9 @@ export interface HeroFieldOptions {
 }
 
 export function startHeroField(canvas: HTMLCanvasElement, opts: HeroFieldOptions = {}) {
-  const ctx = canvas.getContext('2d', { alpha: false })!
+  // alpha:true so the paper section shows through before the first frame paints
+  // (no black flash). Each frame still fills an opaque paper base first.
+  const ctx = canvas.getContext('2d', { alpha: true })!
   const noise = createNoise3D()
 
   let W = 0, H = 0, dpr = 1
