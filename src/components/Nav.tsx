@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Ouroboros } from './Ouroboros'
+import { Mark } from './Mark'
 import { nav } from '../lib/content'
 
 export function Nav() {
@@ -36,7 +36,7 @@ export function Nav() {
     >
       <nav className="mx-auto flex h-[68px] max-w-[1240px] items-center justify-between px-6">
         <a href="#top" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Ouroboros variant="filled" size={26} title="Ouro Praxis" />
+          <Mark size={30} title="Ouro Praxis" />
           <span className="font-display text-[1.15rem] tracking-tight text-ink">Ouro Praxis</span>
         </a>
 

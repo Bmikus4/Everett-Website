@@ -1,4 +1,4 @@
-import { Ouroboros } from './Ouroboros'
+import { Mark } from './Mark'
 import { MotionToggle } from './MotionToggle'
 import { footer } from '../lib/content'
 
@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              <Ouroboros variant="filled" size={28} title="Ouro Praxis" />
+              <Mark size={32} title="Ouro Praxis" />
               <span className="font-display text-[1.2rem] tracking-tight text-ink">{footer.brand}</span>
             </div>
             <p className="mt-5 max-w-[34ch] text-[0.95rem] text-ink-soft">{footer.descriptor}</p>

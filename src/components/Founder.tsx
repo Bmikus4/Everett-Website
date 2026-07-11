@@ -1,4 +1,4 @@
-import { Ouroboros } from './Ouroboros'
+import { Mark } from './Mark'
 import { founder } from '../lib/content'
 
 export function Founder() {
@@ -9,7 +9,7 @@ export function Founder() {
           <div className="grid h-28 w-28 place-items-center rounded-full border border-hairline bg-raised">
             <span className="font-display text-[2.5rem] font-light text-plum">E</span>
           </div>
-          <Ouroboros variant="filled" size={40} draw title="Ouro Praxis" />
+          <Mark size={60} title="Ouro Praxis" />
         </div>
         <div>
           <p className="reveal font-display text-[1.35rem] font-light leading-relaxed text-ink">{founder.paragraph}</p>

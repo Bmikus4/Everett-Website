@@ -1,12 +1,15 @@
-import { OuroRing } from './OuroRing'
 import { guarantee } from '../lib/content'
 
 export function Guarantee() {
   return (
     <section id="guarantee" className="relative overflow-hidden border-y border-hairline bg-sunken">
-      <div className="pointer-events-none absolute right-[-6%] top-1/2 hidden -translate-y-1/2 md:block">
-        <OuroRing size={420} opacity={0.06} spin />
-      </div>
+      <img
+        src={`${import.meta.env.BASE_URL}ouroboros.svg`}
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute right-[-8%] top-1/2 hidden -translate-y-1/2 md:block"
+        style={{ width: 460, opacity: 0.08 }}
+      />
       <div className="mx-auto max-w-[820px] px-6 py-[clamp(5rem,11vw,9rem)] text-center">
         <h2 className="reveal font-display font-light text-ink" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)', lineHeight: 1.04 }}>
           {guarantee.headline}

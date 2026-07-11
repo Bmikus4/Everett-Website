@@ -1,11 +1,11 @@
-import { Ouroboros } from './Ouroboros'
+import { Mark } from './Mark'
 import { finalCta } from '../lib/content'
 
 export function FinalCta() {
   return (
     <section id="book" className="section-dark relative overflow-hidden">
       <div className="relative z-10 mx-auto flex max-w-[820px] flex-col items-center px-6 py-[clamp(6rem,14vw,11rem)] text-center">
-        <Ouroboros variant="line" size={60} color="var(--color-gold)" glint className="mb-10" title="Ouro Praxis" />
+        <Mark size={76} variant="gold" className="mb-10" title="Ouro Praxis" />
         <span className="font-mono text-[0.8rem] uppercase tracking-[0.16em]" style={{ color: 'var(--color-ink-faint)' }}>{finalCta.eyebrow}</span>
         <h2 className="mt-5 font-display font-light" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: 1.02, color: 'var(--color-ink)' }}>
           {finalCta.headline}
