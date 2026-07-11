@@ -13,11 +13,11 @@ export function Hero() {
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <img
-            src={`${import.meta.env.BASE_URL}ouroboros.png`}
+            src={`${import.meta.env.BASE_URL}ouroboros.svg`}
             alt=""
             aria-hidden
-            className="w-[min(88vh,880px)] max-w-none translate-y-[3%]"
-            style={{ opacity: 0.2 }}
+            className="w-[min(82vh,760px)] max-w-none"
+            style={{ opacity: 0.4 }}
           />
         </div>
       </div>

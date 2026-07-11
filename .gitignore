@@ -29,3 +29,6 @@ scripts/preview.*
 public/og.svg
 
 .github/
+scripts/shots2/
+scripts/cand-*.svg
+scripts/*.png
