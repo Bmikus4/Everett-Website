@@ -51,9 +51,17 @@ export function useTheme() {
 
   const toggle = useCallback(() => {
     const next: Theme = currentTheme() === 'dark' ? 'light' : 'dark'
-    localStorage.setItem(STORAGE_KEY, next)
-    apply(next)
-    setTheme(next)
+    const commit = () => {
+      localStorage.setItem(STORAGE_KEY, next)
+      apply(next)
+      setTheme(next)
+    }
+    // Crossfade the whole page as one synchronized transition (all sections at
+    // once) via the View Transitions API. Instant, synchronized fallback otherwise.
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const doc = document as Document & { startViewTransition?: (cb: () => void) => void }
+    if (doc.startViewTransition && !reduce) doc.startViewTransition(commit)
+    else commit()
     window.dispatchEvent(new Event('ouro-theme-change'))
   }, [])
 

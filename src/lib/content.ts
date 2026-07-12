@@ -20,21 +20,21 @@ export const nav = {
 
 export const hero = {
   kicker: 'For window & door dealers',
-  headline: "Who's working your 2024 unsold demos right now?",
+  headline: "Who\'s working your 2024 unsold demos right now?",
   subhead:
-    "If the answer is nobody, we are your rehash department, redefined. You only pay when the appointment sits.",
+    "If the answer is nobody, we\'re your rehash department, redefined. You only pay when the appointment sits.",
   cta: CTA_LABEL,
   // The product, shown: a real reactivation text thread that ends in a sat appointment.
   demo: {
     business: 'Summit Window & Door',
     setter: 'Dana',
     messages: [
-      { from: 'setter', text: "Hey Jim, it's Dana over at Summit Window & Door. My manager asked me to reach out, didn't want to spam you." },
-      { from: 'setter', text: "Your 2025 quote is actually under today's replacement cost. If windows are still on the list, we can lock that price before the next increase." },
+      { from: 'setter', text: "Hey Jim, it\'s Dana over at Summit Window & Door. My manager asked me to reach out, didn\'t want to spam you." },
+      { from: 'setter', text: "Your 2025 quote is actually under today\'s replacement cost. If windows are still on the list, we can lock that price before the next increase." },
       { from: 'lead', text: 'Honestly forgot about it. How much are we talking?' },
       { from: 'setter', text: 'For the 8 windows we measured, still in your original range. Want someone to swing by this week to confirm?' },
       { from: 'lead', text: 'Thursday afternoon works' },
-      { from: 'setter', text: "Done, Thursday 3pm. I'll send a confirmation and make sure Karen is there too." },
+      { from: 'setter', text: "Done, Thursday 3pm. I\'ll send a confirmation and make sure Karen is there too." },
     ],
     status: 'Appointment sat, both homeowners confirmed',
   },
@@ -79,7 +79,7 @@ export const bridge = {
 export const pain = {
   eyebrow: 'The leaks',
   headline: 'We follow your funnel. We plug every leak in it.',
-  sub: "You have spent years and six figures filling your CRM. Here is where it leaks, stage by stage.",
+  sub: "You\'ve spent years and six figures filling your CRM. Here\'s where it leaks, stage by stage.",
   leaks: [
     {
       k: 'Demos walk',
@@ -91,15 +91,15 @@ export const pain = {
     },
     {
       k: 'Dials go nowhere',
-      body: "Homeowners stopped answering unknown numbers. Dialing old leads is a morale shredder, so nobody does it, and your setters can't get anyone on the phone.",
+      body: "Homeowners stopped answering unknown numbers. Dialing old leads is a morale shredder, so nobody does it, and your setters can\'t get anyone on the phone.",
     },
     {
       k: 'After-hours goes cold',
-      body: '40%+ of inquiries land after your setters go home. The 9pm Saturday lead is ice by Monday’s dial.',
+      body: '40%+ of inquiries land after your setters go home. The 9pm Saturday lead is ice by Monday\'s dial.',
     },
     {
       k: 'Sits fall off',
-      body: 'No-shows, cancels, and one-leggers drop off the calendar and almost none get re-set. That is a rep’s route slot and windshield time, gone.',
+      body: 'No-shows, cancels, and one-leggers drop off the calendar and almost none get re-set. That\'s a rep\'s route slot and windshield time, gone.',
     },
     {
       k: 'Empty January',
@@ -107,7 +107,7 @@ export const pain = {
     },
     {
       k: 'Underpriced quotes',
-      body: 'Every quote you wrote last year is under today’s material cost, and the 25C tax credit ended for anything installed after Dec 31, 2025.',
+      body: 'Every quote you wrote last year is under today\'s material cost, and the 25C tax credit ended for anything installed after Dec 31, 2025.',
     },
   ],
   close: 'Every one of those leaks has a name in your CRM. We work all of them, and you pay on sits.',
@@ -118,13 +118,13 @@ export const pain = {
 export const services = {
   eyebrow: 'What we run',
   headline: 'Six services, one for every leak.',
-  sub: 'Most dealers start with Database Reactivation, because it is money already in the CRM. The rest of the funnel builds from there.',
+  sub: 'Most dealers start with Database Reactivation, because it\'s money already in the CRM. The rest of the funnel builds from there.',
   items: [
     {
       stage: '01',
       tag: 'New leads',
       name: 'Speed to Lead',
-      hook: 'Shared leads are a footrace, and right now you are losing it.',
+      hook: 'Shared leads are a footrace, and right now you\'re losing it.',
       body: 'Every new lead, from Angi, Google, Meta, or your website, gets a real two-way response in under 60 seconds, around the clock. We qualify the project and confirm both homeowners before your competitor picks up the phone.',
       wins: [
         'Under 60 seconds to first contact, 24/7',
@@ -137,7 +137,7 @@ export const services = {
       stage: '02',
       tag: 'Nights & weekends',
       name: 'After-Hours Setter',
-      hook: 'Your call center goes home at 6. About 40% of your leads do not.',
+      hook: 'Your call center goes home at 6. About 40% of your leads don\'t.',
       body: 'Facebook leads at 9pm, website inquiries Sunday morning: we answer, qualify, and book them the moment they land. Monday your issue sheet is already full, with no overtime and no weekend shift.',
       wins: [
         'Zero missed inquiries, whenever they arrive',
@@ -163,12 +163,12 @@ export const services = {
       stage: '04',
       tag: 'Dead leads & demos',
       name: 'Database Reactivation',
-      hook: 'Your CRM is full of paid-for homeowners nobody is talking to. That is your goldmine.',
+      hook: 'Your CRM is full of paid-for homeowners nobody is talking to. That\'s your goldmine.',
       body: 'Demo-no-sales, unset aged leads, cancels, and financing declines: we text every layer of your database, open real two-way conversations, and book the live ones. In your voice, with both homeowners confirmed.',
       wins: [
         'Demo-no-sales, educated and quoted, your warmest inventory',
         'Cancels re-approached so your rep never has the awkward call',
-        'The price-lock angle turned into the market’s best urgency hook',
+        'The price-lock angle turned into the market\'s best urgency hook',
         'One CSV export and one 20-minute call is your entire workload',
       ],
       flagship: true,
@@ -214,7 +214,7 @@ export const how = {
     {
       no: '02',
       name: 'Approve the scripts',
-      body: 'We write every campaign in your company’s voice. You approve every word on one 20-minute call.',
+      body: 'We write every campaign in your company\'s voice. You approve every word on one 20-minute call.',
     },
     {
       no: '03',
@@ -226,7 +226,7 @@ export const how = {
 
 export const calculator = {
   eyebrow: 'The math',
-  title: "There's a number buried in your CRM.",
+  title: "There\'s a number buried in your CRM.",
   sub: 'Move the sliders. This is revenue you already paid to acquire, waiting to be recovered.',
   inputs: {
     contacts: { label: 'Dead contacts in your CRM', min: 500, max: 25000, step: 250, default: 5000 },
@@ -244,8 +244,8 @@ export const offer = {
   points: [
     { title: 'A one-time setup fee', body: 'Covers the list scrub, compliance registration, and campaigns built in your voice. Skin in the game on both sides.' },
     { title: 'Then pay per sit', body: 'Plus a small percent of collected revenue. The same shape as rep commission, on leads you had already written off.' },
-    { title: 'The guarantee', body: 'Give us your 500 oldest demo-no-sales. If we do not put 10 sat appointments on your calendar in 21 days, the setup fee comes back.' },
-    { title: 'One dealer per metro', body: 'Everything we learn reactivating your market’s homeowners works for you, and nobody else.' },
+    { title: 'The guarantee', body: 'Give us your 500 oldest demo-no-sales. If we don\'t put 10 sat appointments on your calendar in 21 days, the setup fee comes back.' },
+    { title: 'One dealer per metro', body: 'Everything we learn reactivating your market\'s homeowners works for you, and nobody else.' },
   ],
   cta: CTA_LABEL,
 }
@@ -259,7 +259,7 @@ export const compliance = {
     'Texts sent 8am to 9pm local, opt-outs honored within 10 business days',
     'Every message identifies your company and how to opt out',
   ],
-  bottomLine: 'More defensible than whoever is texting from the office cell phone today.',
+  bottomLine: 'More defensible than whoever\'s texting from the office cell phone today.',
 }
 
 export const faq = {
@@ -268,23 +268,23 @@ export const faq = {
   items: [
     {
       q: 'We already do rehash.',
-      a: 'Good, most real companies do, for about two weeks per lead. Who texts the ones from fourteen months ago? That layer is most of your list, and it is where we make our money.',
+      a: 'Good, most real companies do, for about two weeks per lead. Who texts the ones from fourteen months ago? That layer is most of your list, and it\'s where we make our money.',
     },
     {
       q: 'My list is too old.',
-      a: 'Maybe. We will know within seven days for the cost of a CSV. Old is fine: windows they did not replace in 2023 are draftier and cost more today. Junk gets filtered before anything sends, so you never pay on noise.',
+      a: 'Maybe. We\'ll know within seven days for the cost of a CSV. Old is fine: windows they didn\'t replace in 2023 are draftier and cost more today. Junk gets filtered before anything sends, so you never pay on noise.',
     },
     {
-      q: "Won't this train homeowners to wait for discounts?",
-      a: 'Only if rehash means "call back cheaper." Ours does not. We re-open conversations on new information: price increases, crew availability, financing changes, never price cuts.',
+      q: "Won\'t this train homeowners to wait for discounts?",
+      a: 'Only if rehash means "call back cheaper." Ours doesn\'t. We re-open conversations on new information: price increases, crew availability, financing changes, never price cuts.',
     },
     {
       q: 'How is this different from the software platforms?',
-      a: 'Software is a gym membership. You still have to script it, staff it, and manage it, and you pay every month whether it produces or not. We are the team, not the tool, done for you and paid on sits.',
+      a: 'Software is a gym membership. You still have to script it, staff it, and manage it, and you pay every month whether it produces or not. We\'re the team, not the tool, done for you and paid on sits.',
     },
     {
       q: 'Will homeowners know the difference?',
-      a: 'You approve every word. Messages are short, human, and in your company’s voice, and anyone who asks for a person gets one immediately. The most common reply we see is relief that somebody finally followed up.',
+      a: 'You approve every word. Messages are short, human, and in your company\'s voice, and anyone who asks for a person gets one immediately. The most common reply we see is relief that somebody finally followed up.',
     },
   ],
 }
@@ -294,13 +294,13 @@ export const founder = {
   name: 'Everett Smith',
   title: 'Founder, Ouro Praxis',
   quote:
-    'Why can’t we craft an offer so compelling that a dealer would have to be crazy to say no, and then deliver on it?',
+    'Why can\'t we craft an offer so compelling that a dealer would have to be crazy to say no, and then deliver on it?',
   body:
     'Ouro Praxis was built on one belief: replacement dealers are sitting on a goldmine of paid-for homeowners, and the right follow-up unlocks it without adding headcount, complexity, or upfront cost. So we built the system we wished existed, priced it on results, and put it to work.',
 }
 
 export const finalCta = {
-  headline: "There's a number buried in your CRM. Let's find out what it is.",
+  headline: "There\'s a number buried in your CRM. Let\'s find out what it\'s.",
   sub: 'Fifteen minutes, three inputs. You leave with the math whether we ever work together or not.',
   cta: CTA_LABEL,
   underline: 'One dealer per metro',
@@ -333,7 +333,7 @@ export const footer = {
 export const servicesPage = {
   kicker: 'Our services',
   headline: 'We follow your funnel. We plug every leak in it.',
-  sub: 'Every service maps to a stage of your sales process, from the second a lead lands to years after the install. Most dealers start with Database Reactivation, because it is money already in the CRM.',
+  sub: 'Every service maps to a stage of your sales process, from the second a lead lands to years after the install. Most dealers start with Database Reactivation, because it\'s money already in the CRM.',
   funnel: ['Lead in', 'Set', 'Sit', 'Close', 'Install', 'Past customer'],
 }
 
@@ -345,18 +345,18 @@ export const aboutPage = {
   intro:
     'Window and door dealers were sitting on thousands of paid-for leads earning nothing. No system was working them the right way, so we built one from scratch, priced it on results, and put it to work.',
   story: [
-    'For years the agency world told dealers to do it the hard way: retainer contracts, funnels, expensive ads. It was exhausting, and it did not have to be.',
+    'For years the agency world told dealers to do it the hard way: retainer contracts, funnels, expensive ads. It was exhausting, and it didn\'t have to be.',
     'The problem was obvious. Dealers spend six figures a year on new leads while thousands of already-paid-for contacts, demo-no-sales, dead Angi leads, cancels, and past customers, sit untouched in the CRM. The leads were there. The consent was there. The revenue was there. What was missing was a team willing to do the work.',
   ],
   timeline: [
     { k: 'The problem', h: 'The same graveyard, every dealer', b: 'Years of ad spend, thousands of contacts, and a CRM nobody worked past week two. The database was not broken. The follow-up was.' },
-    { k: 'The insight', h: 'Dials do not work. Text does.', b: 'Homeowners stopped answering unknown calls years ago. A two-way text that feels personal gets read, gets a reply, and gets appointments. Same leads, different channel, different result.' },
+    { k: 'The insight', h: 'Dials don\'t work. Text does.', b: 'Homeowners stopped answering unknown calls years ago. A two-way text that feels personal gets read, gets a reply, and gets appointments. Same leads, different channel, different result.' },
     { k: 'The build', h: 'Six services, every stage of the funnel', b: 'One service for each leak: speed to lead, after-hours, social, database reactivation, reviews, and referrals. Each one solving a specific problem that was being ignored.' },
     { k: 'The model', h: 'Pay on sits. Nothing else.', b: 'No retainers for results you cannot see. A small setup fee to build it right, then you pay per sat appointment. Our incentives are identical to yours.' },
   ],
   values: [
     { h: 'Results over everything', b: 'Every campaign is measured by one thing: sat appointments and collected revenue.' },
-    { h: 'Partners, not vendors', b: 'We are paid like your reps, on performance. Your success is the only version of ours.' },
+    { h: 'Partners, not vendors', b: 'We\'re paid like your reps, on performance. Your success is the only version of ours.' },
     { h: 'Speed wins', b: 'The first responder takes the job. We build for speed at every stage, new lead in, old lead out.' },
     { h: 'Radical transparency', b: 'No vanity metrics. You see sits booked, sits run, jobs closed, and revenue collected.' },
     { h: 'Compliance built in', b: 'Consent-sourced, litigator-scrubbed, quiet hours enforced by state. We protect your business while we grow it.' },
@@ -365,10 +365,10 @@ export const aboutPage = {
   whyNow: {
     headline: 'Why replacement dealers. Why now.',
     items: [
-      { n: '01', h: 'The market is squeezed', b: 'Tariffs pushed material costs up around 5 to 6% and the 25C tax credit ended for anything installed after Dec 31, 2025. Dealers who do not work their database are leaving their only free lead source untouched.' },
+      { n: '01', h: 'The market is squeezed', b: 'Tariffs pushed material costs up around 5 to 6% and the 25C tax credit ended for anything installed after Dec 31, 2025. Dealers who don\'t work their database are leaving their only free lead source untouched.' },
       { n: '02', h: 'PE is outspending independents', b: 'Private-equity platforms have call centers and dedicated rehash teams. The independent dealer with a part-time setter is at a structural disadvantage. We close that gap.' },
-      { n: '03', h: 'Every 2025 quote is underpriced', b: 'Painful, but it is the most honest urgency hook the industry has handed you. "Lock your old pricing before the next increase" only exists right now.' },
-      { n: '04', h: 'The one-call close is aging', b: 'Younger buyers research everything and will not sign night one. The follow-up-dependent share of revenue grows every year. Dealers with a system for it win.' },
+      { n: '03', h: 'Every 2025 quote is underpriced', b: 'Painful, but it\'s the most honest urgency hook the industry has handed you. "Lock your old pricing before the next increase" only exists right now.' },
+      { n: '04', h: 'The one-call close is aging', b: 'Younger buyers research everything and won\'t sign night one. The follow-up-dependent share of revenue grows every year. Dealers with a system for it win.' },
     ],
   },
 }
@@ -376,21 +376,21 @@ export const aboutPage = {
 // ---------- Contact page ----------
 export const contactPage = {
   kicker: 'Get in touch',
-  headline: "There's a number buried in your CRM.",
+  headline: "There\'s a number buried in your CRM.",
   sub: 'Fifteen minutes, your numbers live on screen. You leave knowing exactly what your dormant database is worth, and how we would go after it. No pitch deck, no pressure.',
   whatHappens: {
     title: 'What happens on the call',
     items: [
       { h: 'We run your numbers live', b: 'List count, average ticket, close rate. We build your recoverable-revenue figure while you watch.' },
-      { h: 'We show you real campaigns', b: 'Actual text conversations: demo-no-sale rescues, cancel re-books, past-customer cross-sells, in a dealer’s voice.' },
+      { h: 'We show you real campaigns', b: 'Actual text conversations: demo-no-sale rescues, cancel re-books, past-customer cross-sells, in a dealer\'s voice.' },
       { h: 'We walk the pilot offer', b: 'Exactly what the setup covers, what you pay per sit, and what the 21-day guarantee looks like for your list.' },
-      { h: 'Fifteen minutes flat', b: 'You are a busy dealer, not a prospect at a timeshare. We respect that.' },
+      { h: 'Fifteen minutes flat', b: 'You\'re a busy dealer, not a prospect at a timeshare. We respect that.' },
     ],
   },
   beforeYouSend: {
     title: 'Before you hit send',
     items: [
-      'One dealer per metro, we will confirm your market is open',
+      'One dealer per metro, we\'ll confirm your market is open',
       'Consent-compliant from day one',
       'Your list stays yours, we never share or resell contact data',
       'No retainer, no long-term contract, pay on sits only',
@@ -398,7 +398,7 @@ export const contactPage = {
   },
   form: {
     title: 'Request your free dead-lead audit',
-    sub: "Tell us a bit about your operation. We'll confirm your metro is open and get a call on the calendar.",
+    sub: "Tell us a bit about your operation. We\'ll confirm your metro is open and get a call on the calendar.",
     focusLabel: 'What do you want to focus on?',
     focusOptions: [
       { v: 'reactivation', label: 'Database Reactivation', note: 'work my demo-no-sales, dead leads, and cancels' },
@@ -411,7 +411,7 @@ export const contactPage = {
     spendRanges: ['Under $5K / mo', '$5K - $15K / mo', '$15K - $40K / mo', 'Over $40K / mo'],
     crmOptions: ['MarketSharp', 'LeadPerfection', 'i360 / improveit', 'JobNimbus', 'HubSpot', 'Spreadsheet / other'],
     submit: 'Send my request, claim my metro',
-    footnote: "We'll confirm your metro is open and send calendar options within one business day. No spam, no retainer pitch.",
+    footnote: "We\'ll confirm your metro is open and send calendar options within one business day. No spam, no retainer pitch.",
   },
 }
 
@@ -420,10 +420,10 @@ export const casesPage = {
   kicker: 'Case studies',
   headline: "The best proof is your own list.",
   body:
-    'We run one dealer per metro, so we do not publish another dealer’s numbers where their competitors can read them. That protection is part of the deal, and one day it protects yours.',
+    'We run one dealer per metro, so we don\'t publish another dealer\'s numbers where their competitors can read them. That protection is part of the deal, and one day it protects yours.',
   points: [
     { h: 'See real campaigns on your call', b: 'Actual text threads, real demo-no-sale rescues and cancel re-books, walked through live with your own list in mind.' },
-    { h: 'The 21-day proof', b: 'Give us your 500 oldest demo-no-sales. If we do not put 10 sat appointments on your calendar in 21 days, the setup fee comes back.' },
+    { h: 'The 21-day proof', b: 'Give us your 500 oldest demo-no-sales. If we don\'t put 10 sat appointments on your calendar in 21 days, the setup fee comes back.' },
     { h: 'You keep the math either way', b: 'Fifteen minutes, three inputs, and you leave knowing what your database is worth whether we work together or not.' },
   ],
   cta: CTA_LABEL,

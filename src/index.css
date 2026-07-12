@@ -90,7 +90,15 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
-    transition: background-color 0.4s var(--ease-out-quint), color 0.4s var(--ease-out-quint);
+  }
+
+  /* Day/night: crossfade the whole page as one synchronized transition. */
+  @media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 0.45s;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
