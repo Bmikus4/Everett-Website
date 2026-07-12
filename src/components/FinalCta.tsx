@@ -1,27 +1,24 @@
 import { Mark } from './Mark'
 import { finalCta } from '../lib/content'
 
+// Dark-band climax (stays dark in both themes). Single CTA, one dealer per metro.
 export function FinalCta() {
   return (
-    <section id="book" className="section-dark relative overflow-hidden">
+    <section id="cta" className="band-dark relative overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.06]">
+        <Mark size={720} spin />
+      </div>
       <div className="relative z-10 mx-auto flex max-w-[820px] flex-col items-center px-6 py-[clamp(6rem,14vw,11rem)] text-center">
-        <Mark size={76} variant="gold" className="mb-10" title="Ouro Praxis" />
-        <span className="font-mono text-[0.8rem] uppercase tracking-[0.16em]" style={{ color: 'var(--color-ink-faint)' }}>{finalCta.eyebrow}</span>
-        <h2 className="mt-5 font-display font-light" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', lineHeight: 1.02, color: 'var(--color-ink)' }}>
+        <Mark size={68} className="mb-9" title="Ouro Praxis" />
+        <h2 className="text-[clamp(2.2rem,5.2vw,3.9rem)]" style={{ lineHeight: 1.04, color: 'var(--color-ink)' }}>
           {finalCta.headline}
         </h2>
-        <p className="measure mt-7 text-[1.15rem]" style={{ color: 'var(--color-ink-soft)', maxWidth: '46ch' }}>{finalCta.sub}</p>
-
-        <a
-          href="mailto:hello@ouropraxis.com?subject=Book%20a%20reactivation%20call"
-          className="mt-11 inline-flex items-center rounded-full px-9 py-4 text-[1rem] font-medium transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0"
-          style={{ background: 'var(--color-gold)', color: '#2e2440' }}
-        >
-          {finalCta.ctaPrimary}
+        <p className="mt-6 max-w-[48ch] text-[1.12rem]" style={{ color: 'var(--color-ink-soft)' }}>{finalCta.sub}</p>
+        <a href="/contact" className="btn-gold mt-10 inline-flex items-center rounded-full px-9 py-4 text-[1rem] font-medium">
+          {finalCta.cta}
         </a>
-
-        <p className="mt-10 max-w-[44ch] font-mono text-[0.72rem] uppercase tracking-[0.1em]" style={{ color: 'var(--color-ink-faint)' }}>
-          {finalCta.scarcity}
+        <p className="mt-9 font-mono text-[0.72rem] uppercase tracking-[0.14em]" style={{ color: 'var(--color-ink-faint)' }}>
+          {finalCta.underline}
         </p>
       </div>
     </section>

@@ -1,37 +1,46 @@
+import { useEffect, useState } from 'react'
 import { Nav } from './components/Nav'
-import { Hero } from './components/Hero'
-import { Trust } from './components/Trust'
-import { Problem } from './components/Problem'
-import { HowItWorks } from './components/HowItWorks'
-import { Services } from './components/Services'
-import { Results } from './components/Results'
-import { Testimonials } from './components/Testimonials'
-import { Why } from './components/Why'
-import { Calculator } from './components/Calculator'
-import { Guarantee } from './components/Guarantee'
-import { Faq } from './components/Faq'
-import { Founder } from './components/Founder'
-import { FinalCta } from './components/FinalCta'
 import { Footer } from './components/Footer'
+import { Home } from './pages/Home'
+import { Services } from './pages/Services'
+import { About } from './pages/About'
+import { Contact } from './pages/Contact'
+import { Cases } from './pages/Cases'
+
+// Tiny path router. Internal links are plain anchors (full navigation); the Vercel
+// rewrite serves index.html for every path, and this picks the page to render.
+const ROUTES: Record<string, () => React.ReactNode> = {
+  '/': Home,
+  '/services': Services,
+  '/about': About,
+  '/contact': Contact,
+  '/cases': Cases,
+}
 
 export default function App() {
+  const [path, setPath] = useState(() => window.location.pathname.replace(/\/$/, '') || '/')
+
+  useEffect(() => {
+    const onPop = () => setPath(window.location.pathname.replace(/\/$/, '') || '/')
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+
+  // Scroll to a hash target on load (e.g. /#calculator from the footer).
+  useEffect(() => {
+    if (window.location.hash) {
+      const el = document.querySelector(window.location.hash)
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100)
+    }
+  }, [])
+
+  const Page = ROUTES[path] ?? Home
+
   return (
     <>
       <Nav />
       <main>
-        <Hero />
-        <Trust />
-        <Problem />
-        <HowItWorks />
-        <Services />
-        <Results />
-        <Testimonials />
-        <Why />
-        <Calculator />
-        <Guarantee />
-        <Faq />
-        <Founder />
-        <FinalCta />
+        <Page />
       </main>
       <Footer />
       <div className="grain-overlay" aria-hidden />

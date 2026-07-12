@@ -14,7 +14,7 @@ export function MotionToggle() {
         className="grid h-4 w-7 place-items-center rounded-full border border-hairline"
         style={{ justifyItems: on ? 'end' : 'start', padding: '0 2px' }}
       >
-        <span className="block h-2.5 w-2.5 rounded-full" style={{ background: on ? 'var(--color-clay)' : 'var(--color-ink-faint)' }} />
+        <span className="block h-2.5 w-2.5 rounded-full" style={{ background: on ? 'var(--color-gold)' : 'var(--color-ink-faint)' }} />
       </span>
       Motion {on ? 'on' : 'off'}
     </button>

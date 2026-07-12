@@ -1,87 +1,80 @@
 @import "tailwindcss";
 
 /* Self-hosted variable fonts (no external <link> in production) */
-@import "@fontsource-variable/newsreader";
-@import "@fontsource-variable/newsreader/wght-italic.css";
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/geist-mono";
+@import "@fontsource-variable/newsreader/wght-italic.css"; /* single pull-quote accent only */
 
 /*
-  OURO PRAXIS — design tokens.
-  Concept: the ouroboros, the inevitable cycle of death and rebirth.
-  Warm paper + a single plum death-pole + clay/gold rebirth accent + desaturated
-  pastels used only as light washes and chips. The death->rebirth axis expressed
-  as color: cold ash pastels resolve into warm living pastels as the pulse passes.
+  OURO PRAXIS - gold + white design tokens (WCAG-verified).
+  Gold is an ACCENT (~10% of pixels): one CTA + links + the ring mark + hairlines.
+  Ground is warm ivory (light) / warm near-black (dark). Neutrals are warm to match gold.
+  Light-mode gold goes DARK (brass, legible); dark-mode gold goes LIGHT (champagne).
+  Theme is switched by [data-theme] on <html>; JS sets it before paint (index.html).
 */
 @theme {
-  --color-paper: #f7f4ee;
-  --color-raised: #fcfaf5;
-  --color-sunken: #f0ece3;
-  --color-ink: #171614;
-  --color-ink-soft: #514c44;
-  --color-ink-faint: #837c6f; /* darkened to clear ~3:1; decorative + large only */
-  --color-hairline: rgba(23, 22, 20, 0.12);
+  /* light defaults (also see [data-theme="light"]) */
+  --color-paper: #faf8f3;   /* bg ground (ivory)   */
+  --color-raised: #ffffff;  /* surface / card      */
+  --color-sunken: #f4f1e9;  /* bg-alt / sunken     */
+  --color-ink: #1a1712;     /* text primary 16.8:1 */
+  --color-ink-soft: #5f584c;/* text secondary ~6:1 */
+  --color-ink-faint: #837c70;/* meta / UI ~4.3:1   */
+  --color-hairline: #e6e0d3;
 
-  --radius-card: 22px;
+  --color-gold: #8a6a17;        /* accent + text, AA 5.05:1 */
+  --color-gold-hover: #7a5e12;  /* hover 6.1:1 */
+  --color-gold-link: #6e5410;   /* links AAA 7.15:1 */
+  --color-gold-pastel: #e7d3a1; /* decoration / logo only */
+  --color-gold-tint: #f3ead2;   /* chip / hover bg */
+  --color-on-gold: #ffffff;     /* text on solid gold btn */
+  --color-slate: #2e4257;       /* quiet cool companion */
 
-  --color-plum: #3b2f4a;
-  --color-plum-deep: #2e2440;
-  --color-clay: #b5654a;
-  --color-gold: #e6c98b;
+  --radius-card: 20px;
 
-  --color-lavender: #dad3f0;
-  --color-mint: #cde4d6;
-  --color-blush: #f1d6d3;
-  --color-peach: #f6ddc7;
-  --color-sky: #ccdeec;
-  --color-cream: #fbf3e4;
-
-  /* pastel text-tints (readable ink-tints of each wash) */
-  --color-lavender-ink: #7a6da8;
-  --color-mint-ink: #5e8c72;
-  --color-blush-ink: #b07a74;
-  --color-sky-ink: #5e7e98;
-
-  --font-display: "Newsreader Variable", Georgia, serif;
+  --font-display: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --font-serif: "Newsreader Variable", Georgia, serif;
 
   --ease-out-quint: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-rebirth: cubic-bezier(0.22, 0.61, 0.36, 1);
 
-  --shadow-soft: 0 24px 60px -24px rgba(59, 47, 74, 0.18),
-    0 2px 6px rgba(59, 47, 74, 0.06);
+  --shadow-soft: 0 24px 60px -28px rgba(60, 48, 20, 0.22),
+    0 2px 6px rgba(60, 48, 20, 0.06);
 }
 
-:root {
+/* explicit light (default) */
+:root,
+:root[data-theme="light"] {
   color-scheme: light;
 }
 
-/* Dark: a deep warm night the pastels glow against (prefers-color-scheme users). */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --color-paper: #14130f;
-    --color-raised: #1c1a17;
-    --color-sunken: #100f0c;
-    --color-ink: #ede8df;
-    --color-ink-soft: #b9b2a6;
-    --color-ink-faint: #7a7468;
-    --color-hairline: rgba(237, 232, 223, 0.1);
-    --color-plum: #2e2440;
-    --color-clay: #c57a5e;
-    --color-lavender: #b7add6;
-    --color-mint: #a7c4a0;
-    --color-blush: #d7b4b0;
-    --shadow-soft: 0 24px 60px -24px rgba(0, 0, 0, 0.5),
-      0 2px 6px rgba(0, 0, 0, 0.3);
-  }
+/* dark: champagne gold on warm near-black */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: #14120e;
+  --color-raised: #1e1b15;
+  --color-sunken: #100e0b;
+  --color-ink: #f5f1e8;
+  --color-ink-soft: #b8b0a0;
+  --color-ink-faint: #837b6a;
+  --color-hairline: #322e26;
+
+  --color-gold: #e3c77a;       /* AAA 11.3:1 */
+  --color-gold-hover: #eed596;
+  --color-gold-link: #e3c77a;
+  --color-gold-pastel: #ead9a8;
+  --color-gold-tint: #2a2418;
+  --color-on-gold: #14120e;    /* ink on champagne btn 11.3:1 */
+  --color-slate: #8fb0cc;
+
+  --shadow-soft: 0 24px 60px -28px rgba(0, 0, 0, 0.55),
+    0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
@@ -92,31 +85,28 @@
     color: var(--color-ink-soft);
     font-family: var(--font-sans);
     font-size: 1.0625rem;
-    line-height: 1.65;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    transition: background-color 0.4s var(--ease-out-quint), color 0.4s var(--ease-out-quint);
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     color: var(--color-ink);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.0;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.02;
     margin: 0;
     text-wrap: balance;
-    font-optical-sizing: auto;
   }
   p { margin: 0; text-wrap: pretty; }
   a { color: inherit; text-decoration: none; }
   button { font-family: inherit; }
-  ::selection {
-    background: var(--color-gold);
-    color: var(--color-ink);
-  }
+  ::selection { background: var(--color-gold-pastel); color: #1a1712; }
   :focus-visible {
-    outline: 2px solid var(--color-clay);
+    outline: 2px solid var(--color-gold);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -131,57 +121,77 @@
 }
 
 @layer utilities {
-  /* Editorial mono eyebrow */
+  /* Mono eyebrow (rationed: <= 1 per 3 sections) */
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-ink-soft);
+    letter-spacing: 0.16em;
+    color: var(--color-gold);
     font-weight: 500;
   }
   .tnum { font-variant-numeric: tabular-nums; }
+  .measure { max-width: 66ch; }
 
-  /* The intentional dark climax section (plum) regardless of page theme */
-  .section-dark {
-    --color-paper: #2e2440;
-    --color-raised: #3b2f4a;
-    --color-ink: #f4eefb;
-    --color-ink-soft: #cdc3db;
-    --color-ink-faint: #9a8fae;
-    --color-hairline: rgba(244, 238, 251, 0.12);
+  /* Serif italic - reserved for a single pull-quote accent */
+  .serif-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.18;
+    padding-bottom: 0.08em;
+  }
+
+  /* Solid gold button (ink-on-champagne in dark, white-on-brass in light) */
+  .btn-gold {
+    background: var(--color-gold);
+    color: var(--color-on-gold);
+    transition: background-color 0.2s ease, transform 0.15s ease;
+  }
+  .btn-gold:hover { background: var(--color-gold-hover); }
+  .btn-gold:active { transform: translateY(1px); }
+
+  /* Intentional dark band (offer/CTA climax) that stays dark in BOTH themes */
+  .band-dark {
+    --color-paper: #14120e;
+    --color-raised: #1e1b15;
+    --color-ink: #f5f1e8;
+    --color-ink-soft: #b8b0a0;
+    --color-ink-faint: #837b6a;
+    --color-hairline: #322e26;
+    --color-gold: #e3c77a;
+    --color-gold-link: #e3c77a;
+    --color-on-gold: #14120e;
     background: var(--color-paper);
     color: var(--color-ink-soft);
   }
 
-  /* Fine film grain — the cheapness-killer. Fixed, pointer-events:none, above all. */
+  /* Fine film grain - the cheapness-killer. Fixed, pointer-events:none, above all. */
   .grain-overlay {
     position: fixed;
     inset: 0;
     z-index: 60;
     pointer-events: none;
-    opacity: 0.04;
+    opacity: 0.035;
     mix-blend-mode: soft-light;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* Native scroll-driven reveal. Finished state IS the default (no motion => in place). */
+  /* Native scroll-driven reveal. Finished state IS the default. */
   .reveal { opacity: 1; }
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
       .reveal {
         animation: reveal-fade-up linear both;
         animation-timeline: view();
-        animation-range: entry 0% cover 32%;
+        animation-range: entry 0% cover 30%;
       }
     }
   }
   @keyframes reveal-fade-up {
-    from { opacity: 0; transform: translateY(22px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  .measure { max-width: 66ch; }
 
   /* SMS demo: bubble entrance + typing dots */
   .bubble-in { animation: bubble-in 0.34s var(--ease-out-quint) both; }
@@ -199,69 +209,9 @@
     .dot { animation: none; }
   }
 
-  /* Ouroboros self-draw (line mark) and the eternal gold glint circling forever */
-  .ouro-draw {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-  }
-  .ouro-draw-fill { transform-origin: center; }
-  @media (prefers-reduced-motion: no-preference) {
-    .ouro-draw {
-      animation: ouro-draw 2.4s var(--ease-rebirth) forwards;
-    }
-    .ouro-draw-fill {
-      animation: ouro-fill 1.8s var(--ease-rebirth) forwards;
-    }
-    .ouro-glint {
-      stroke-dasharray: 0.09 0.91;
-      animation: ouro-glint 6s linear infinite;
-    }
-  }
-  @keyframes ouro-draw {
-    to { stroke-dashoffset: 0; }
-  }
-  @keyframes ouro-fill {
-    from { opacity: 0; transform: scale(0.94) rotate(-8deg); }
-    to { opacity: 1; transform: scale(1) rotate(0); }
-  }
-  @keyframes ouro-glint {
-    from { stroke-dashoffset: 1; }
-    to { stroke-dashoffset: -0.09; }
-  }
-
-  /* Global scroll-spine: a faint ouroboros ring that draws itself as you scroll,
-     closing (head meets tail) at the bottom of the page. Pure CSS scroll timeline. */
-  .spine-path {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 0; /* fallback + reduced motion: shown already closed */
-  }
-  @supports (animation-timeline: scroll()) {
-    @media (prefers-reduced-motion: no-preference) {
-      .spine-path {
-        animation: spine-draw linear both;
-        animation-timeline: scroll(root block);
-      }
-      .spine-glint {
-        animation: spine-glint linear both;
-        animation-timeline: scroll(root block);
-      }
-    }
-  }
-  @keyframes spine-draw {
-    from { stroke-dashoffset: 1; }
-    to { stroke-dashoffset: 0; }
-  }
-  @keyframes spine-glint {
-    from { offset-distance: 0%; opacity: 0.9; }
-    to { offset-distance: 100%; opacity: 0.9; }
-  }
-
-  .watermark-spin {
-    animation: watermark-spin 200s linear infinite;
-  }
-  @keyframes watermark-spin {
-    to { transform: rotate(360deg); }
-  }
+  /* Ouroboros mark: slow eternal spin for the faint hero watermark */
+  .watermark-spin { animation: watermark-spin 220s linear infinite; }
+  @keyframes watermark-spin { to { transform: rotate(360deg); } }
 
   /* Calculator range slider (the instrument feel) */
   .ouro-range {
@@ -271,8 +221,8 @@
     border-radius: 999px;
     background: linear-gradient(
       to right,
-      var(--color-clay) 0%,
-      var(--color-clay) var(--pct),
+      var(--color-gold) 0%,
+      var(--color-gold) var(--pct),
       var(--color-hairline) var(--pct),
       var(--color-hairline) 100%
     );
@@ -286,8 +236,8 @@
     height: 18px;
     border-radius: 50%;
     background: var(--color-raised);
-    border: 2px solid var(--color-clay);
-    box-shadow: 0 2px 8px rgba(59, 47, 74, 0.2);
+    border: 2px solid var(--color-gold);
+    box-shadow: 0 2px 8px rgba(60, 48, 20, 0.22);
     transition: transform 0.15s ease;
   }
   .ouro-range::-webkit-slider-thumb:hover { transform: scale(1.15); }
@@ -296,6 +246,6 @@
     height: 18px;
     border-radius: 50%;
     background: var(--color-raised);
-    border: 2px solid var(--color-clay);
+    border: 2px solid var(--color-gold);
   }
 }

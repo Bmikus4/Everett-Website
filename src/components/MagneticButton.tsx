@@ -9,8 +9,9 @@ interface Props {
   className?: string
 }
 
-/* One subtle magnetic CTA. Pulls toward the cursor via motion values (never state).
-   Always a real anchor (focusable, keyboard-operable). Static on coarse / reduced motion. */
+/* The single magnetic CTA. Pulls toward the cursor via motion values (never state).
+   Always a real anchor (focusable, keyboard-operable). Static on coarse / reduced motion.
+   Primary = solid gold (ink-on-champagne dark, white-on-brass light). */
 export function MagneticButton({ children, href, variant = 'primary', className = '' }: Props) {
   const ref = useRef<HTMLAnchorElement>(null)
   const enabled = heavyMotionAllowed()
@@ -28,17 +29,14 @@ export function MagneticButton({ children, href, variant = 'primary', className 
     mx.set((e.clientX - (r.left + r.width / 2)) * 0.3)
     my.set((e.clientY - (r.top + r.height / 2)) * 0.3)
   }
-  const reset = () => {
-    mx.set(0)
-    my.set(0)
-  }
+  const reset = () => { mx.set(0); my.set(0) }
 
   const base =
-    'relative inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[0.95rem] font-medium tracking-tight transition-colors duration-300 will-change-transform'
+    'relative inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[0.95rem] font-medium tracking-tight will-change-transform whitespace-nowrap'
   const styles =
     variant === 'primary'
-      ? 'bg-ink text-paper hover:bg-plum'
-      : 'border border-hairline text-ink hover:border-clay hover:text-clay'
+      ? 'btn-gold'
+      : 'border border-hairline text-ink transition-colors duration-300 hover:border-gold hover:text-gold'
 
   return (
     <motion.a

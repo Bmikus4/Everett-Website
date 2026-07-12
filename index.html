@@ -2,29 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/ouro-mark.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ouro Praxis — The end of a lead is the beginning of a sale</title>
+    <title>Ouro Praxis — Found money, paid on sits</title>
     <meta
       name="description"
-      content="AI database reactivation for local service businesses. We revive the dormant leads already sitting in your CRM into booked calls and recovered revenue. No new ad spend. No new staff."
+      content="Ouro Praxis is the rehash department for window and door dealers. We work every layer of your CRM, book the live ones onto your calendar, and you only pay when the appointment sits."
     />
-    <meta name="theme-color" content="#f7f4ee" />
+    <meta name="theme-color" content="#faf8f3" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Ouro Praxis — AI Database Reactivation" />
+    <meta property="og:title" content="Ouro Praxis — Found money, paid on sits" />
     <meta
       property="og:description"
-      content="Revive the dormant leads already in your CRM into booked calls and recovered revenue. Nothing is lost. Everything returns."
+      content="The rehash department for window and door dealers. We work every layer of your CRM and book the live ones. You only pay when the appointment sits."
     />
     <meta property="og:image" content="/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ouro Praxis — AI Database Reactivation" />
+    <meta name="twitter:title" content="Ouro Praxis — Found money, paid on sits" />
     <meta
       name="twitter:description"
-      content="The end of a lead is the beginning of a sale. AI-led SMS that turns dead leads into booked calls."
+      content="We work every layer of your CRM and book the live ones onto your calendar. You only pay when the appointment sits."
     />
     <meta name="twitter:image" content="/og.png" />
+
+    <!-- Set theme before paint to avoid flash of wrong theme -->
+    <script>
+      (function () {
+        try {
+          var s = localStorage.getItem('ouro-theme');
+          var t = s === 'light' || s === 'dark'
+            ? s
+            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.dataset.theme = t;
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', t === 'dark' ? '#14120e' : '#faf8f3');
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { OURO } from '../lib/ouroboros-paths'
-import { calculator } from '../lib/content'
+import { calculator, CTA_LABEL } from '../lib/content'
 import { motionAllowed } from '../lib/motion'
 
-const gbp = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 })
+const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
 
 // Smooth a value toward its target with a single top-level rAF loop (updater stays pure).
 function useSmoothed(target: number) {
@@ -11,18 +11,10 @@ function useSmoothed(target: number) {
   const cur = useRef(target)
   const raf = useRef(0)
   useEffect(() => {
-    if (!motionAllowed()) {
-      cur.current = target
-      setDisplay(target)
-      return
-    }
+    if (!motionAllowed()) { cur.current = target; setDisplay(target); return }
     const tick = () => {
       const next = cur.current + (target - cur.current) * 0.18
-      if (Math.abs(target - next) < 1) {
-        cur.current = target
-        setDisplay(target)
-        return
-      }
+      if (Math.abs(target - next) < 1) { cur.current = target; setDisplay(target); return }
       cur.current = next
       setDisplay(next)
       raf.current = requestAnimationFrame(tick)
@@ -51,55 +43,61 @@ function Slider({ label, min, max, step, value, onChange, format, note }: {
         className="ouro-range mt-3 w-full"
         style={{ '--pct': `${pct}%` } as React.CSSProperties}
       />
-      {note && <span className="mt-2 block text-[0.75rem] text-ink-soft">{note}</span>}
+      {note && <span className="mt-2 block text-[0.75rem] text-ink-faint">{note}</span>}
     </label>
   )
 }
 
 export function Calculator() {
   const c = calculator.inputs
-  const [leads, setLeads] = useState(c.leads.default)
-  const [aov, setAov] = useState(c.aov.default)
-  const [reply, setReply] = useState(c.replyRate.default)
-  const [close, setClose] = useState(c.closeRate.default)
+  const [contacts, setContacts] = useState(c.contacts.default)
+  const [ticket, setTicket] = useState(c.ticket.default)
+  const [rate, setRate] = useState(c.rate.default)
 
-  const recoverable = Math.round(leads * (reply / 100) * (close / 100) * aov)
-  const shown = Math.round(useSmoothed(recoverable))
-  const fill = Math.min(recoverable / 500000, 1)
+  const jobs = contacts * (rate / 100)
+  const revenue = Math.round(jobs * ticket)
+  const sits = Math.round(jobs / calculator.closeRateForSits)
+  const shownRevenue = Math.round(useSmoothed(revenue))
+  const fill = (rate - c.rate.min) / (c.rate.max - c.rate.min)
 
   return (
-    <section id="calculator" className="relative mx-auto max-w-[1240px] px-6 py-[clamp(5rem,11vw,9rem)]">
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-20">
-        <div className="rounded-[var(--radius-card)] border border-hairline bg-raised p-8 shadow-[var(--shadow-soft)] sm:p-10">
-          <h2 className="font-display text-[1.7rem] font-normal leading-tight text-ink">{calculator.title}</h2>
-          <p className="mt-3 text-[0.95rem] text-ink-soft">{calculator.sub}</p>
-          <div className="mt-9 flex flex-col gap-7">
-            <Slider label={c.leads.label} min={c.leads.min} max={c.leads.max} step={c.leads.step} value={leads} onChange={setLeads} format={(v) => v.toLocaleString('en-GB')} />
-            <Slider label={c.aov.label} min={c.aov.min} max={c.aov.max} step={c.aov.step} value={aov} onChange={setAov} format={(v) => gbp.format(v)} />
-            <Slider label={c.replyRate.label} min={c.replyRate.min} max={c.replyRate.max} step={c.replyRate.step} value={reply} onChange={setReply} format={(v) => `${v}%`} note={c.replyRate.note} />
-            <Slider label={c.closeRate.label} min={c.closeRate.min} max={c.closeRate.max} step={c.closeRate.step} value={close} onChange={setClose} format={(v) => `${v}%`} />
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center justify-center text-center">
-          <div className="relative flex items-center justify-center">
-            <svg viewBox={OURO.viewBox} className="h-[min(62vw,400px)] w-[min(62vw,400px)]" style={{ overflow: 'visible' }}>
-              <path d={OURO.ring} fill="none" stroke="var(--color-hairline)" strokeWidth={1.4} />
-              <path d={OURO.ring} fill="none" stroke={fill > 0.85 ? 'var(--color-gold)' : 'var(--color-clay)'} strokeWidth={2.4} strokeLinecap="round" pathLength={1}
-                style={{ strokeDasharray: 1, strokeDashoffset: 1 - fill, transition: motionAllowed() ? 'stroke-dashoffset 0.5s var(--ease-out-quint), stroke 0.4s linear' : 'none' }} />
-            </svg>
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
-              <span className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ink-soft">recoverable</span>
-              <span className="tnum mt-2 font-display font-light text-ink" style={{ fontSize: 'clamp(2.1rem, 5vw, 3.5rem)', lineHeight: 1 }}>
-                {gbp.format(shown)}
-              </span>
+    <section id="calculator" className="scroll-mt-24 bg-sunken">
+      <div className="mx-auto max-w-[1240px] px-6 py-[clamp(5rem,11vw,9rem)]">
+        <div className="reveal grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16">
+          {/* instrument */}
+          <div className="rounded-[var(--radius-card)] border border-hairline bg-raised p-8 shadow-[var(--shadow-soft)] sm:p-10">
+            <h2 className="text-[clamp(1.6rem,2.6vw,2.1rem)]">{calculator.title}</h2>
+            <p className="mt-3 text-[0.95rem] text-ink-soft">{calculator.sub}</p>
+            <div className="mt-9 flex flex-col gap-7">
+              <Slider label={c.contacts.label} min={c.contacts.min} max={c.contacts.max} step={c.contacts.step} value={contacts} onChange={setContacts} format={(v) => v.toLocaleString('en-US')} />
+              <Slider label={c.ticket.label} min={c.ticket.min} max={c.ticket.max} step={c.ticket.step} value={ticket} onChange={setTicket} format={(v) => usd.format(v)} />
+              <Slider label={c.rate.label} min={c.rate.min} max={c.rate.max} step={c.rate.step} value={rate} onChange={setRate} format={(v) => `${v.toFixed(1)}%`} note={c.rate.note} />
             </div>
           </div>
-          <p className="mt-8 max-w-[38ch] font-display text-[1.05rem] italic text-ink-soft">{calculator.framing}</p>
-          <p className="mt-4 max-w-[42ch] text-[0.9rem] text-ink-soft">{calculator.anchor}</p>
-          <a href="#book" className="mt-8 inline-flex items-center rounded-full bg-ink px-7 py-3.5 text-[0.95rem] font-medium text-paper transition-colors hover:bg-plum">
-            {calculator.cta}
-          </a>
+
+          {/* readout */}
+          <div className="flex flex-col items-center justify-center text-center">
+            <div className="relative flex items-center justify-center">
+              <svg viewBox={OURO.viewBox} className="h-[min(60vw,380px)] w-[min(60vw,380px)]" style={{ overflow: 'visible' }}>
+                <path d={OURO.ring} fill="none" stroke="var(--color-hairline)" strokeWidth={1.4} />
+                <path d={OURO.ring} fill="none" stroke="var(--color-gold)" strokeWidth={2.6} strokeLinecap="round" pathLength={1}
+                  style={{ strokeDasharray: 1, strokeDashoffset: 1 - Math.max(0.04, fill), transition: motionAllowed() ? 'stroke-dashoffset 0.5s var(--ease-out-quint)' : 'none' }} />
+              </svg>
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
+                <span className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-ink-faint">recovered revenue</span>
+                <span className="tnum mt-2 font-display font-semibold text-ink" style={{ fontSize: 'clamp(2rem, 5vw, 3.3rem)', lineHeight: 1, letterSpacing: '-0.03em' }}>
+                  {usd.format(shownRevenue)}
+                </span>
+                <span className="mt-3 text-[0.85rem] text-ink-soft">
+                  about <span className="tnum font-medium text-ink">{sits.toLocaleString('en-US')}</span> sits from a list you already paid for
+                </span>
+              </div>
+            </div>
+            <p className="mt-6 max-w-[42ch] text-[0.9rem] text-ink-soft">{calculator.anchor}</p>
+            <a href="/contact" className="btn-gold mt-8 inline-flex items-center rounded-full px-7 py-3.5 text-[0.95rem] font-medium">
+              {CTA_LABEL}
+            </a>
+          </div>
         </div>
       </div>
     </section>

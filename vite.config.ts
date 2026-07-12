@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
+// Absolute base: deployed at the Vercel root domain, and client routes need
+// assets served from /assets regardless of the current path.
 export default defineConfig({
-  // Relative base works on both Vercel (served at root) and GitHub Pages (subpath).
-  base: './',
+  base: '/',
   plugins: [react(), tailwindcss()],
 })
