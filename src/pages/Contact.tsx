@@ -6,28 +6,39 @@ const label = 'mb-1.5 block text-[0.8rem] font-medium text-ink-soft'
 const field =
   'w-full rounded-xl border border-hairline bg-paper px-3.5 py-2.5 text-[0.95rem] text-ink placeholder:text-ink-faint focus:border-gold focus:outline-none focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-gold)_35%,transparent)]'
 
+const WEBHOOK = 'https://samuraisolutions.app.n8n.cloud/webhook/ouro-praxis-contact'
+
 export function Contact() {
   const c = contactPage
   const [focus, setFocus] = useState('reactivation')
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState(false)
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
-    const lines = [
-      `Name: ${data.get('first')} ${data.get('last')}`,
-      `Company: ${data.get('company')}`,
-      `Mobile: ${data.get('mobile')}`,
-      `Email: ${data.get('email')}`,
-      `Metro: ${data.get('metro')}`,
-      `CRM: ${data.get('crm')}`,
-      `Revenue: ${data.get('revenue')}`,
-      `Lead/ad spend: ${data.get('spend')}`,
-      `Focus: ${focus}`,
-      `Notes: ${data.get('notes')}`,
-    ].join('\n')
-    window.location.href = `mailto:${footer.email}?subject=${encodeURIComponent('Free dead-lead audit request')}&body=${encodeURIComponent(lines)}`
-    setSent(true)
+    const payload = {
+      first: data.get('first'), last: data.get('last'), company: data.get('company'),
+      mobile: data.get('mobile'), email: data.get('email'), metro: data.get('metro'),
+      crm: data.get('crm'), revenue: data.get('revenue'), spend: data.get('spend'),
+      focus, notes: data.get('notes'),
+    }
+    setSending(true)
+    setError(false)
+    try {
+      const res = await fetch(WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error(String(res.status))
+      setSent(true)
+    } catch {
+      setError(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -142,9 +153,15 @@ export function Contact() {
                 <textarea className={`${field} min-h-[92px] resize-y`} id="notes" name="notes" placeholder="e.g. about 3,000 old demo-no-sales in MarketSharp nobody has touched in two years" />
               </div>
 
-              <button type="submit" className="btn-gold mt-7 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-[0.98rem] font-medium">
-                {c.form.submit}
+              <button type="submit" disabled={sending} className="btn-gold mt-7 inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-[0.98rem] font-medium disabled:opacity-70">
+                {sending ? 'Sending...' : c.form.submit}
               </button>
+              {error && (
+                <p className="mt-4 text-center text-[0.82rem] text-ink" role="alert">
+                  Something went wrong sending that. Email us directly at{' '}
+                  <a href={`mailto:${footer.email}`} className="text-gold-link underline underline-offset-2">{footer.email}</a>.
+                </p>
+              )}
               <p className="mt-4 text-center text-[0.78rem] text-ink-faint">{c.form.footnote}</p>
             </form>
           )}
