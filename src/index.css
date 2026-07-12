@@ -13,14 +13,14 @@
   Theme is switched by [data-theme] on <html>; JS sets it before paint (index.html).
 */
 @theme {
-  /* light defaults (also see [data-theme="light"]) */
-  --color-paper: #faf8f3;   /* bg ground (ivory)   */
+  /* light defaults (white + gold; also see [data-theme="light"]) */
+  --color-paper: #ffffff;   /* white ground        */
   --color-raised: #ffffff;  /* surface / card      */
-  --color-sunken: #f4f1e9;  /* bg-alt / sunken     */
-  --color-ink: #1a1712;     /* text primary 16.8:1 */
+  --color-sunken: #f7f6f2;  /* faint warm off-white for section rhythm */
+  --color-ink: #1a1712;     /* text primary        */
   --color-ink-soft: #5f584c;/* text secondary ~6:1 */
-  --color-ink-faint: #837c70;/* meta / UI ~4.3:1   */
-  --color-hairline: #e6e0d3;
+  --color-ink-faint: #857e72;/* meta / UI ~4.3:1   */
+  --color-hairline: #ece8de;
 
   --color-gold: #8a6a17;        /* accent + text, AA 5.05:1 */
   --color-gold-hover: #7a5e12;  /* hover 6.1:1 */

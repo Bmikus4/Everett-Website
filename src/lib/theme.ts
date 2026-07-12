@@ -24,7 +24,7 @@ export function currentTheme(): Theme {
 function apply(theme: Theme) {
   document.documentElement.dataset.theme = theme
   const meta = document.querySelector('meta[name="theme-color"]')
-  if (meta) meta.setAttribute('content', theme === 'dark' ? '#14120e' : '#faf8f3')
+  if (meta) meta.setAttribute('content', theme === 'dark' ? '#14120e' : '#ffffff')
 }
 
 export function useTheme() {
