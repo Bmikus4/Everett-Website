@@ -31,9 +31,7 @@
       (function () {
         try {
           var s = localStorage.getItem('ouro-theme');
-          var t = s === 'light' || s === 'dark'
-            ? s
-            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          var t = s === 'dark' ? 'dark' : 'light'; // default light unless user chose dark
           document.documentElement.dataset.theme = t;
           var m = document.querySelector('meta[name="theme-color"]');
           if (m) m.setAttribute('content', t === 'dark' ? '#14120e' : '#ffffff');

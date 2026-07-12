@@ -6,11 +6,11 @@ import { finalCta } from '../lib/content'
 export function FinalCta() {
   return (
     <section id="cta" className="relative overflow-hidden" style={{ background: 'var(--color-gold-tint)' }}>
-      <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.08]">
-        <Mark size={720} spin />
+      <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.1]">
+        <Mark size={720} spin className="cta-mark" />
       </div>
       <div className="relative z-10 mx-auto flex max-w-[820px] flex-col items-center px-6 py-[clamp(6rem,14vw,11rem)] text-center">
-        <Mark size={68} className="mb-9" title="Ouro Praxis" />
+        <Mark size={68} className="cta-mark mb-9" title="Ouro Praxis" />
         <h2 className="text-[clamp(2.2rem,5.2vw,3.9rem)] text-ink" style={{ lineHeight: 1.04 }}>
           {finalCta.headline}
         </h2>

@@ -1,16 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 
-// Day/night theme. Persisted in localStorage; falls back to system preference.
-// The <html data-theme> attribute is set before paint by the inline script in
-// index.html to avoid a flash. This hook keeps React in sync and toggles it.
+// Day/night theme. Defaults to LIGHT unless the user has explicitly chosen dark
+// (persisted in localStorage). The <html data-theme> attribute is set before paint
+// by the inline script in index.html to avoid a flash. This hook syncs + toggles it.
 
 const STORAGE_KEY = 'ouro-theme'
 export type Theme = 'light' | 'dark'
-
-function systemTheme(): Theme {
-  if (typeof window === 'undefined') return 'light'
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
 
 export function currentTheme(): Theme {
   if (typeof document === 'undefined') return 'light'
@@ -18,7 +13,7 @@ export function currentTheme(): Theme {
   if (attr === 'light' || attr === 'dark') return attr
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored === 'light' || stored === 'dark') return stored
-  return systemTheme()
+  return 'light'
 }
 
 function apply(theme: Theme) {
@@ -31,22 +26,9 @@ export function useTheme() {
   const [theme, setTheme] = useState<Theme>(currentTheme)
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-color-scheme: dark)')
-    const onSystem = () => {
-      // only follow the system when the user hasn't chosen explicitly
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        const t = systemTheme()
-        apply(t)
-        setTheme(t)
-      }
-    }
     const onEvent = () => setTheme(currentTheme())
-    mq.addEventListener('change', onSystem)
     window.addEventListener('ouro-theme-change', onEvent)
-    return () => {
-      mq.removeEventListener('change', onSystem)
-      window.removeEventListener('ouro-theme-change', onEvent)
-    }
+    return () => window.removeEventListener('ouro-theme-change', onEvent)
   }, [])
 
   const toggle = useCallback(() => {
