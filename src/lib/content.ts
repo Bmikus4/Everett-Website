@@ -40,9 +40,10 @@ export const hero = {
   },
   // Trust strip sits UNDER the hero (never inside it).
   trust: [
-    'You only pay on sits',
-    'One dealer per metro',
-    'Consent-sourced, quiet-hours enforced',
+    { icon: 'sit', label: 'You only pay on sits' },
+    { icon: 'metro', label: 'One dealer per metro' },
+    { icon: 'consent', label: 'Consent-sourced' },
+    { icon: 'hours', label: 'Quiet hours enforced' },
   ],
 }
 

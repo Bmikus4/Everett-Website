@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { OURO } from '../lib/ouroboros-paths'
 import { calculator, CTA_LABEL } from '../lib/content'
 import { motionAllowed } from '../lib/motion'
 
@@ -77,23 +76,24 @@ export function Calculator() {
 
           {/* readout */}
           <div className="flex flex-col items-center justify-center text-center">
-            <div className="relative flex items-center justify-center">
-              <svg viewBox={OURO.viewBox} className="h-[min(60vw,380px)] w-[min(60vw,380px)]" style={{ overflow: 'visible' }}>
-                <path d={OURO.ring} fill="none" stroke="var(--color-hairline)" strokeWidth={1.4} />
-                <path d={OURO.ring} fill="none" stroke="var(--color-gold)" strokeWidth={2.6} strokeLinecap="round" pathLength={1}
+            <div className="relative" style={{ width: 'min(82vw, 400px)', height: 'min(82vw, 400px)' }}>
+              <svg viewBox="0 0 200 200" className="h-full w-full -rotate-90">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="var(--color-hairline)" strokeWidth="2" />
+                <circle cx="100" cy="100" r="90" fill="none" stroke="var(--color-gold)" strokeWidth="4" strokeLinecap="round"
+                  pathLength={1}
                   style={{ strokeDasharray: 1, strokeDashoffset: 1 - Math.max(0.04, fill), transition: motionAllowed() ? 'stroke-dashoffset 0.5s var(--ease-out-quint)' : 'none' }} />
               </svg>
-              <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
-                <span className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-ink-faint">recovered revenue</span>
-                <span className="tnum mt-2 font-display font-semibold text-ink" style={{ fontSize: 'clamp(2rem, 5vw, 3.3rem)', lineHeight: 1, letterSpacing: '-0.03em' }}>
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-[18%]">
+                <span className="font-mono text-[0.66rem] uppercase tracking-[0.18em] text-ink-faint">recovered revenue</span>
+                <span className="tnum mt-2.5 font-display font-semibold text-ink" style={{ fontSize: 'clamp(1.9rem, 4.4vw, 2.9rem)', lineHeight: 1, letterSpacing: '-0.03em' }}>
                   {usd.format(shownRevenue)}
-                </span>
-                <span className="mt-3 text-[0.85rem] text-ink-soft">
-                  about <span className="tnum font-medium text-ink">{sits.toLocaleString('en-US')}</span> sits from a list you already paid for
                 </span>
               </div>
             </div>
-            <p className="mt-6 max-w-[42ch] text-[0.9rem] text-ink-soft">{calculator.anchor}</p>
+            <p className="mt-7 text-[0.98rem] text-ink-soft">
+              about <span className="tnum font-semibold text-ink">{sits.toLocaleString('en-US')}</span> sits from a list you already paid for
+            </p>
+            <p className="mt-3 max-w-[42ch] text-[0.88rem] text-ink-faint">{calculator.anchor}</p>
             <a href="/contact" className="btn-gold mt-8 inline-flex items-center rounded-full px-7 py-3.5 text-[0.95rem] font-medium">
               {CTA_LABEL}
             </a>

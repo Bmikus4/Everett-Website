@@ -1,3 +1,4 @@
+import { ArrowRight } from '@phosphor-icons/react'
 import { MagneticButton } from './MagneticButton'
 import { SmsDemo } from './SmsDemo'
 import { Mark } from './Mark'
@@ -24,8 +25,15 @@ export function Hero() {
             {hero.headline}
           </h1>
           <p className="mt-6 max-w-[34rem] text-[1.12rem] text-ink-soft">{hero.subhead}</p>
-          <div className="mt-9">
+          <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
             <MagneticButton href="/contact" variant="primary">{hero.cta}</MagneticButton>
+            <a
+              href="/contact"
+              className="group inline-flex items-center gap-1.5 text-[0.95rem] text-ink-soft underline decoration-hairline decoration-1 underline-offset-4 transition-colors hover:text-ink"
+            >
+              Book a call
+              <ArrowRight size={15} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
         </div>
 

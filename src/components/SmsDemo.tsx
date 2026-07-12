@@ -15,6 +15,7 @@ export function SmsDemo() {
   const [typing, setTyping] = useState(false)
   const [done, setDone] = useState(!animate)
   const timers = useRef<number[]>([])
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!seen || !animate) return
@@ -31,6 +32,12 @@ export function SmsDemo() {
     const t = timers.current
     return () => t.forEach(clearTimeout)
   }, [seen, animate, demo.messages])
+
+  // Keep the thread pinned to the newest message (phone stays a fixed size, scrolls).
+  useEffect(() => {
+    const el = scrollRef.current
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: animate ? 'smooth' : 'auto' })
+  }, [shown, typing, done, animate])
 
   const nextFrom = shown < demo.messages.length ? demo.messages[shown].from : 'setter'
 
@@ -70,8 +77,8 @@ export function SmsDemo() {
             </div>
           </div>
 
-          {/* messages: min-height reserved so the phone never grows as bubbles arrive */}
-          <div className="flex min-h-[468px] flex-col gap-1.5 px-3.5 py-4" style={{ background: '#fff' }}>
+          {/* messages: fixed height, scrolls internally so the phone stays one size */}
+          <div ref={scrollRef} className="no-sb flex h-[416px] flex-col gap-1.5 overflow-y-auto px-3.5 py-4" style={{ background: '#fff' }}>
             <div className="mb-1 text-center text-[0.66rem] font-medium" style={{ color: '#8e8e93' }}>Text Message · SMS</div>
             {demo.messages.slice(0, shown).map((m, i) => (
               <Bubble key={i} from={m.from} text={m.text} animate={animate} />

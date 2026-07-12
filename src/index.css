@@ -133,6 +133,10 @@
   .tnum { font-variant-numeric: tabular-nums; }
   .measure { max-width: 66ch; }
 
+  /* hidden scrollbar (used by the phone message thread) */
+  .no-sb { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-sb::-webkit-scrollbar { display: none; }
+
   /* Serif italic - reserved for a single pull-quote accent */
   .serif-quote {
     font-family: var(--font-serif);
