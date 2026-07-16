@@ -47,8 +47,8 @@ export function Services() {
               <p className="mt-4 max-w-[52ch] text-[1.15rem] text-ink">{s.hook}</p>
               <p className="mt-4 max-w-[60ch] text-[1.02rem] leading-relaxed text-ink-soft">{s.body}</p>
 
-              <div className={s.flagship ? 'mt-8 grid gap-10 lg:grid-cols-[1fr_auto]' : 'mt-8'}>
-                <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className={s.flagship ? 'mt-8 grid items-center gap-10 lg:grid-cols-[1fr_auto]' : 'mt-8'}>
+                <ul className="grid grid-cols-1 content-start gap-3 sm:grid-cols-2">
                   {s.wins.map((w) => (
                     <li key={w} className="flex gap-2.5 text-[0.92rem] text-ink-soft">
                       <ArrowRight size={15} weight="bold" className="mt-1 flex-none text-gold" />
@@ -57,7 +57,7 @@ export function Services() {
                   ))}
                 </ul>
                 {s.flagship && (
-                  <div className="lg:w-[300px]">
+                  <div className="mx-auto w-full max-w-[300px] lg:mx-0 lg:w-[300px]">
                     <SmsDemo />
                     <p className="mt-4 text-center font-mono text-[0.66rem] uppercase tracking-[0.12em] text-ink-faint">What the conversation looks like</p>
                   </div>
