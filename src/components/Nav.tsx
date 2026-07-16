@@ -49,7 +49,7 @@ export function Nav() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <a href="/contact" className="btn-gold hidden rounded-full px-5 py-2 text-[0.85rem] font-medium sm:inline-flex">
+          <a href="/demo" className="btn-gold hidden rounded-full px-5 py-2 text-[0.85rem] font-medium sm:inline-flex">
             {nav.cta}
           </a>
           <button
@@ -75,7 +75,7 @@ export function Nav() {
               </li>
             ))}
           </ul>
-          <a href="/contact" onClick={() => setOpen(false)} className="btn-gold mt-6 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-[0.95rem] font-medium">
+          <a href="/demo" onClick={() => setOpen(false)} className="btn-gold mt-6 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-[0.95rem] font-medium">
             {nav.cta}
           </a>
         </div>

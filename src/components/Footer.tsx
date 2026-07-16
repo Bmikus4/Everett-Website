@@ -42,7 +42,16 @@ export function Footer() {
           <p className="max-w-[54ch] text-[0.8rem] text-ink-faint">{footer.legal}</p>
           <MotionToggle />
         </div>
-        <p className="mt-6 font-mono text-[0.72rem] text-ink-faint">{footer.copyright}</p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-[0.72rem] text-ink-faint">{footer.copyright}</p>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+            {footer.legalLinks.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="text-[0.78rem] text-ink-faint transition-colors hover:text-ink">{l.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </footer>
   )

@@ -10,7 +10,6 @@ const WEBHOOK = 'https://samuraisolutions.app.n8n.cloud/webhook/ouro-praxis-cont
 
 export function Contact() {
   const c = contactPage
-  const [focus, setFocus] = useState('reactivation')
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
   const [error, setError] = useState(false)
@@ -21,8 +20,7 @@ export function Contact() {
     const payload = {
       first: data.get('first'), last: data.get('last'), company: data.get('company'),
       mobile: data.get('mobile'), email: data.get('email'), metro: data.get('metro'),
-      crm: data.get('crm'), revenue: data.get('revenue'), spend: data.get('spend'),
-      focus, notes: data.get('notes'),
+      revenue: data.get('revenue'), notes: data.get('notes'),
     }
     setSending(true)
     setError(false)
@@ -66,16 +64,6 @@ export function Contact() {
               ))}
             </ul>
           </div>
-          <div className="rounded-[var(--radius-card)] border border-hairline bg-sunken p-6">
-            <h2 className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-ink-faint">{c.beforeYouSend.title}</h2>
-            <ul className="mt-4 flex flex-col gap-3">
-              {c.beforeYouSend.items.map((it) => (
-                <li key={it} className="flex gap-2.5 text-[0.9rem] text-ink-soft">
-                  <Check size={15} weight="bold" className="mt-1 flex-none text-gold" />{it}
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         {/* form */}
@@ -101,52 +89,13 @@ export function Contact() {
                 <div><label className={label} htmlFor="email">Email</label><input className={field} id="email" name="email" type="email" required autoComplete="email" /></div>
                 <div><label className={label} htmlFor="metro">Metro / city</label><input className={field} id="metro" name="metro" placeholder="e.g. Columbus, OH" /></div>
                 <div>
-                  <label className={label} htmlFor="crm">CRM you run</label>
-                  <select className={field} id="crm" name="crm" defaultValue="">
-                    <option value="" disabled>Select one</option>
-                    {c.form.crmOptions.map((o) => <option key={o} value={o}>{o}</option>)}
-                  </select>
-                </div>
-                <div>
                   <label className={label} htmlFor="revenue">Approximate annual revenue</label>
                   <select className={field} id="revenue" name="revenue" defaultValue="">
                     <option value="" disabled>Select range</option>
                     {c.form.revenueRanges.map((o) => <option key={o} value={o}>{o}</option>)}
                   </select>
                 </div>
-                <div>
-                  <label className={label} htmlFor="spend">Monthly lead / ad spend</label>
-                  <select className={field} id="spend" name="spend" defaultValue="">
-                    <option value="" disabled>Select range</option>
-                    {c.form.spendRanges.map((o) => <option key={o} value={o}>{o}</option>)}
-                  </select>
-                </div>
               </div>
-
-              <fieldset className="mt-6">
-                <legend className={label}>{c.form.focusLabel}</legend>
-                <div className="mt-1 flex flex-col gap-2.5">
-                  {c.form.focusOptions.map((o) => {
-                    const active = focus === o.v
-                    return (
-                      <label
-                        key={o.v}
-                        className="flex cursor-pointer items-start gap-3 rounded-xl border px-4 py-3 transition-colors"
-                        style={{
-                          borderColor: active ? 'color-mix(in srgb, var(--color-gold) 55%, var(--color-hairline))' : 'var(--color-hairline)',
-                          background: active ? 'var(--color-gold-tint)' : 'transparent',
-                        }}
-                      >
-                        <input type="radio" name="focus" value={o.v} checked={active} onChange={() => setFocus(o.v)} className="mt-1 accent-[var(--color-gold)]" />
-                        <span>
-                          <span className="text-[0.95rem] font-semibold text-ink">{o.label}</span>
-                          <span className="ml-1.5 text-[0.85rem] text-ink-soft">{o.note}</span>
-                        </span>
-                      </label>
-                    )
-                  })}
-                </div>
-              </fieldset>
 
               <div className="mt-6">
                 <label className={label} htmlFor="notes">Anything else we should know? (optional)</label>

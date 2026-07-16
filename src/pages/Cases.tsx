@@ -28,7 +28,7 @@ export function Cases() {
             ))}
           </div>
 
-          <a href="/contact" className="btn-gold relative mt-12 inline-flex items-center rounded-full px-7 py-3.5 text-[0.95rem] font-medium">
+          <a href="/demo" className="btn-gold relative mt-12 inline-flex items-center rounded-full px-7 py-3.5 text-[0.95rem] font-medium">
             {c.cta}
           </a>
         </div>

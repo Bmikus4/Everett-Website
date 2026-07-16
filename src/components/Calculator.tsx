@@ -94,7 +94,7 @@ export function Calculator() {
               about <span className="tnum font-semibold text-ink">{sits.toLocaleString('en-US')}</span> sits from a list you already paid for
             </p>
             <p className="mt-3 max-w-[42ch] text-[0.88rem] text-ink-faint">{calculator.anchor}</p>
-            <a href="/contact" className="btn-gold mt-8 inline-flex items-center rounded-full px-7 py-3.5 text-[0.95rem] font-medium">
+            <a href="/demo" className="btn-gold mt-8 inline-flex items-center rounded-full px-7 py-3.5 text-[0.95rem] font-medium">
               {CTA_LABEL}
             </a>
           </div>

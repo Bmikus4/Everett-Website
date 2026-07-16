@@ -7,6 +7,14 @@
 
 export const CTA_LABEL = 'Get a free demo'
 
+// The "Get a free demo" destination. A SalesWingman lead-machine funnel that runs
+// the demo/booking conversation. Embedded on-site at /demo (see pages/Demo.tsx).
+// DEMO_EMBED_URL uses SalesWingman's official embed params (strips their chrome
+// for a clean in-frame experience); DEMO_URL is the canonical open-in-new-tab link.
+export const DEMO_URL = 'https://app.saleswingman.ai/lm/ouropraxis'
+export const DEMO_EMBED_URL = 'https://app.saleswingman.ai/lm/ouropraxis?embed=1&embedMode=full'
+export const DEMO_PATH = '/demo'
+
 export const nav = {
   brand: 'Ouro Praxis',
   links: [
@@ -29,10 +37,11 @@ export const hero = {
     business: 'Summit Window & Door',
     setter: 'Dana',
     messages: [
-      { from: 'setter', text: "Hey Jim, it\'s Dana over at Summit Window & Door. My manager asked me to reach out, didn\'t want to spam you." },
-      { from: 'setter', text: "Your 2025 quote is actually under today\'s replacement cost. If windows are still on the list, we can lock that price before the next increase." },
+      { from: 'setter', text: "Hey this is Dana from Summit Window and Doors. Is this the same Jack that wanted a quote to replace their windows a while back!" },
+      { from: 'lead', text: "Yeah, that\'s me" },
+      { from: 'setter', text: "amazing! my manager wanted me to call you but I didn\'t want to spam you. just a heads up, your 2025 quotes are below today\'s replacement cost. were you still interested in replacing them?" },
       { from: 'lead', text: 'Honestly forgot about it. How much are we talking?' },
-      { from: 'setter', text: 'For the 8 windows we measured, still in your original range. Want someone to swing by this week to confirm?' },
+      { from: 'setter', text: "For the 8 windows we measured, we can still match your old quote. Want someone to come swing by this week?" },
       { from: 'lead', text: 'Thursday afternoon works' },
       { from: 'setter', text: "Done, Thursday 3pm. I\'ll send a confirmation and make sure Karen is there too." },
     ],
@@ -320,13 +329,17 @@ export const footer = {
       { label: 'Contact', href: '/contact' },
     ],
     Start: [
-      { label: CTA_LABEL, href: '/contact' },
+      { label: CTA_LABEL, href: '/demo' },
       { label: 'The math', href: '/#calculator' },
     ],
   },
   trust: ['Consent-sourced', 'Litigator-scrubbed', 'Quiet hours enforced', 'Opt-outs honored'],
   legal: 'We message only previously-consented contacts and protect your number as the asset it is.',
   copyright: 'Ouro Praxis. The end of a lead is the beginning of a sale.',
+  legalLinks: [
+    { label: 'Terms & Conditions', href: '/terms' },
+    { label: 'Privacy Policy', href: '/privacy' },
+  ],
 }
 
 // ---------- Services page ----------
@@ -413,6 +426,15 @@ export const contactPage = {
     submit: 'Send my request, claim my metro',
     footnote: "We\'ll confirm your metro is open and send calendar options within one business day. No spam, no retainer pitch.",
   },
+}
+
+// ---------- Demo page ----------
+export const demoPage = {
+  kicker: 'Get a free demo',
+  headline: "See it work on a lead like yours.",
+  sub: 'Answer a few quick questions and watch the reactivation play out live, the same way it runs on your database. Two minutes, no pitch deck.',
+  fallback: 'Trouble loading the demo?',
+  fallbackCta: 'Open it in a new tab',
 }
 
 // ---------- Case studies page ----------

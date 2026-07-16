@@ -15,7 +15,7 @@ export function FinalCta() {
           {finalCta.headline}
         </h2>
         <p className="mt-6 max-w-[48ch] text-[1.12rem] text-ink-soft">{finalCta.sub}</p>
-        <a href="/contact" className="btn-gold mt-10 inline-flex items-center rounded-full px-9 py-4 text-[1rem] font-medium">
+        <a href="/demo" className="btn-gold mt-10 inline-flex items-center rounded-full px-9 py-4 text-[1rem] font-medium">
           {finalCta.cta}
         </a>
         <p className="mt-9 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-ink-faint">

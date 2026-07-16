@@ -32,7 +32,7 @@ export function Offer() {
         </div>
 
         <div className="reveal mt-10">
-          <a href="/contact" className="btn-gold inline-flex items-center rounded-full px-8 py-4 text-[1rem] font-medium">{CTA_LABEL}</a>
+          <a href="/demo" className="btn-gold inline-flex items-center rounded-full px-8 py-4 text-[1rem] font-medium">{CTA_LABEL}</a>
         </div>
       </div>
     </section>

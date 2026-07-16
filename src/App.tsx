@@ -6,6 +6,8 @@ import { Services } from './pages/Services'
 import { About } from './pages/About'
 import { Contact } from './pages/Contact'
 import { Cases } from './pages/Cases'
+import { Demo } from './pages/Demo'
+import { Terms, Privacy } from './pages/Legal'
 
 // Tiny path router. Internal links are plain anchors (full navigation); the Vercel
 // rewrite serves index.html for every path, and this picks the page to render.
@@ -15,6 +17,9 @@ const ROUTES: Record<string, () => React.ReactNode> = {
   '/about': About,
   '/contact': Contact,
   '/cases': Cases,
+  '/demo': Demo,
+  '/terms': Terms,
+  '/privacy': Privacy,
 }
 
 export default function App() {
